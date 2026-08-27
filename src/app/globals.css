@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg: #f2efe7;
+  --color-panel: #ffffff;
+  --color-ink: #1e231f;
+  --color-body: #3a4038;
+  --color-muted: #565b52;
+  --color-line: #e1ddcc;
+
+  /* Default / international (Shreyans Agricon Products) — original editorial green */
+  --color-accent: #3c6b39;
+  --color-accent-hover: #2e5a2c;
+  --color-accent-light: #eaf1e6;
+
+  /* Default / international dark, original editorial olive-black */
+  --color-dark: #1b1f1a;
+  --color-dark-2: #262b24;
+  --color-dark-line: #333a31;
+
+  --color-dom: #1e5cc8;
+  --color-dom-bg: #e7edfb;
+
+  /* Fixed (non-swapping) brand colors, used where both entities appear
+     side by side, e.g. the gateway landing page. */
+  --color-sac: #1e5cc8;
+  --color-sac-hover: #17469a;
+  --color-sap: #3c6b39;
+  --color-sap-hover: #2e5a2c;
+
+  /* Fixed, market-independent gateway background — same warm off-white
+     as the rest of the site. */
+  --color-gateway: #f2efe7;
+  --color-gateway-2: #f2efe7;
+}
+
+/* Domestic (Shreyans Auto and Components) brand blue + navy override the
+   sitewide theme once a visitor has chosen the domestic market. */
+[data-market="domestic"] {
+  --color-accent: #1e5cc8;
+  --color-accent-hover: #17469a;
+  --color-accent-light: #e7edfb;
+
+  --color-dark: #0d1b2a;
+  --color-dark-2: #16293d;
+  --color-dark-line: #223349;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg: var(--color-bg);
+  --color-panel: var(--color-panel);
+  --color-ink: var(--color-ink);
+  --color-body: var(--color-body);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-light: var(--color-accent-light);
+  --color-dark: var(--color-dark);
+  --color-dark-2: var(--color-dark-2);
+  --color-dark-line: var(--color-dark-line);
+  --color-dom: var(--color-dom);
+  --color-dom-bg: var(--color-dom-bg);
+  --color-sac: var(--color-sac);
+  --color-sac-hover: var(--color-sac-hover);
+  --color-sap: var(--color-sap);
+  --color-sap-hover: var(--color-sap-hover);
+  --color-gateway: var(--color-gateway);
+  --color-gateway-2: var(--color-gateway-2);
+  --font-heading: var(--font-plex-condensed);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-body);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
