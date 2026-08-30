@@ -4,25 +4,14 @@ import { useRef, useState } from "react";
 import { Paperclip, X } from "lucide-react";
 import { useMarket } from "@/components/market-provider";
 
-// --- Power Automate setup (Microsoft 365 / Excel Online) ---
-// 1. In Power Automate: Create > Instant cloud flow > trigger "When an HTTP
-//    request is received".
-// 2. Click "Use sample payload to generate schema" and paste:
-//    { "name": "Jane Doe", "company": "Acme Inc", "email": "jane@acme.com",
-//      "market": "domestic", "partDetails": "...", "fileName": "drawing.pdf",
-//      "fileBase64": "...", "submittedAt": "2026-01-01T00:00:00.000Z" }
-// 3. Add a Condition: if fileName is not empty ->
-//      "Create file" (OneDrive for Business or SharePoint), in a folder you
-//      choose, File name = fileName, File content =
-//      base64ToBinary(triggerBody()?['fileBase64']). Note the resulting
-//      file's link from that action's output.
-// 4. Add "Add a row into a table" (Excel Online Business) pointing at a
-//    Table in an Excel file in that same OneDrive/SharePoint, with columns:
-//    Timestamp, Name, Company, Email, Market, Part Details, Drawing Link.
-// 5. Add a "Response" action returning HTTP 200 so this form can confirm
-//    success.
-// 6. Copy the trigger's URL from step 1 and paste it below.
-const POWER_AUTOMATE_URL = "REPLACE-power-automate-flow-url";
+// --- Make.com automation (Microsoft 365 / Excel Online) ---
+// Scenario "Integration Webhooks" (make.com, team "My Team"):
+//   Custom Webhook -> Excel Online "Add a Table Row" (RFQ Submissions.xlsx /
+//   Sheet1 / Table1) -> Router -> "Send an Email" (Outlook, to
+//   info@shreyansagricon.com), with the attachment included only when a
+//   drawing was uploaded. See scenario ID 7157085 in Make for the full
+//   blueprint if this ever needs to be rebuilt.
+const RFQ_WEBHOOK_URL = "https://hook.eu1.make.com/nqjkepidtkfsmq5lcs4cllcpsox2wzmj";
 
 const MAX_FILE_MB = 8;
 
@@ -43,7 +32,7 @@ export function RfqForm() {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed" | "not_configured">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   function handleFile(f: File | null) {
@@ -62,15 +51,10 @@ export function RfqForm() {
     }
     setError("");
 
-    if (POWER_AUTOMATE_URL.startsWith("REPLACE-")) {
-      setStatus("not_configured");
-      return;
-    }
-
     setStatus("sending");
     try {
       const fileBase64 = file ? await toBase64(file) : "";
-      const res = await fetch(POWER_AUTOMATE_URL, {
+      const res = await fetch(RFQ_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -95,16 +79,6 @@ export function RfqForm() {
     return (
       <div className="rounded-xl border border-dashed border-accent bg-accent-light p-5 text-sm text-body">
         Thanks — your enquiry is in. We&apos;ll get back to you at <b className="text-ink">{email}</b>.
-      </div>
-    );
-  }
-
-  if (status === "not_configured") {
-    return (
-      <div className="rounded-xl border border-dashed border-accent bg-accent-light p-5 text-sm text-body">
-        Thanks. Your details are ready. Email them{file ? <> with <b className="text-ink">{file.name}</b> attached</> : " with your drawing attached"} to{" "}
-        <b className="text-ink">suparsh@shreyansagricon.com</b>.{" "}
-        <em>(Online submission isn&apos;t connected yet — this is a manual fallback.)</em>
       </div>
     );
   }
