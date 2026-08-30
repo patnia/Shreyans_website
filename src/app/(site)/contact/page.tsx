@@ -45,7 +45,7 @@ export default function ContactPage() {
             <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">REACH US</div>
             <dl className="mb-6">
               <dt className="mt-4 font-mono text-[11px] tracking-[0.13em] text-muted">WORKS</dt>
-              <dd className="mt-1 text-ink">F 4 &amp; 5, FIT, Sector 57, Faridabad 121005, Haryana, India</dd>
+              <dd className="mt-1 text-ink">F 4 &amp; 5, FIT, Sector 57, Faridabad 121004, Haryana, India</dd>
               <dt className="mt-4 font-mono text-[11px] tracking-[0.13em] text-muted">SUPARSH PATNI</dt>
               <dd className="mt-1 text-ink">
                 +91 98104 90896 · <span className="text-muted">suparsh@shreyansagricon.com</span>
@@ -59,7 +59,7 @@ export default function ContactPage() {
               className="mb-6 h-[300px] w-full rounded-xl border border-line"
               title="Map to Shreyans Agricon"
               loading="lazy"
-              src="https://maps.google.com/maps?q=Sector%2057%20FIT%20Faridabad%20Haryana&output=embed"
+              src="https://maps.google.com/maps?q=Shreyans+Agricon,+F+4,+FIT,+Sector+57,+Faridabad,+Haryana+121004&ll=28.3191858,77.2936695&z=17&output=embed"
             />
           </div>
         </div>

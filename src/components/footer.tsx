@@ -39,7 +39,7 @@ export function Footer() {
 
         <div>
           <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-[#EAF3E8]">REACH US</h4>
-          <p className="py-1 text-sm">F 4 &amp; 5, FIT, Sector 57, Faridabad 121005, Haryana</p>
+          <p className="py-1 text-sm">F 4 &amp; 5, FIT, Sector 57, Faridabad 121004, Haryana</p>
           <a className="block py-1 text-sm hover:text-white" href="mailto:suparsh@shreyansagricon.com">
             suparsh@shreyansagricon.com
           </a>
