@@ -3,8 +3,8 @@ export function PageHeader({
   title,
   children,
 }: {
-  eyebrow: string;
-  title: string;
+  eyebrow: React.ReactNode;
+  title: React.ReactNode;
   children?: React.ReactNode;
 }) {
   return (

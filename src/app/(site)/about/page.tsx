@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { MarketText } from "@/components/market-text";
 
 const milestones = [
   { yr: "1989", text: "Shreyans Group founded by Mr. Shreyans Patni; precision turned parts and sub-assemblies for Indian OEMs, from Faridabad, Haryana." },
@@ -18,10 +19,14 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="ABOUT SHREYANS AGRICON" title="Three decades in precision engineering.">
-        For over thirty years, Shreyans Auto & Components (SAC) has been a reliable source of high-precision machined
-        parts and complex sub-assemblies for India&apos;s major industrial and automotive clients, and a single-source
-        export partner to the world.
+      <PageHeader
+        eyebrow={<MarketText dom="ABOUT SHREYANS AUTO & COMPONENTS" intl="ABOUT SHREYANS AGRICON PRODUCTS" />}
+        title="Three decades in precision engineering."
+      >
+        <MarketText
+          dom="For over thirty years, Shreyans Auto & Components (SAC) has been a reliable source of high-precision machined parts and complex sub-assemblies for India's major industrial and automotive clients."
+          intl="For over thirty years, Shreyans Group has manufactured high-precision machined parts and complex sub-assemblies for India's major OEMs. Shreyans AgriCon Products (SAP) brings that same discipline to you as a single-source export partner."
+        />
       </PageHeader>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
@@ -31,10 +36,10 @@ export default function AboutPage() {
             From a Faridabad workshop to a 100% OEM supplier.
           </h2>
           <p className="max-w-[60ch] text-body">
-            Established in 1989, Shreyans Auto built its name supplying quality precision turned parts and
-            sub-assemblies, run by a team trained in the OEM work environment with a well-equipped inspection system.
-            Today the same capability serves automotive, agriculture, construction, tools &amp; accessories, oil &amp;
-            gas, telecom and switchgear, domestically as SAC, and for export through Shreyans AgriCon Products (SAP).
+            <MarketText
+              dom="Established in 1989, Shreyans Auto built its name supplying quality precision turned parts and sub-assemblies to India's OEMs, run by a team trained in the OEM work environment with a well-equipped inspection system. Today the same capability serves automotive, agriculture, construction, tools & accessories, oil & gas, telecom and switchgear customers across the country."
+              intl="Established in 1989, Shreyans Group built its name manufacturing quality precision turned parts and sub-assemblies for India's OEMs. Shreyans AgriCon Products (SAP) extends that capability to export customers on a single-source S.P.A. model: we manufacture select families in-house and source the rest through our audited partner network, so you get one point of contact and full QCD ownership."
+            />
           </p>
         </div>
         <div className="overflow-hidden rounded-2xl border border-line">

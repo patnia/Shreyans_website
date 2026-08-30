@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { MarketText } from "@/components/market-text";
 
 const sectors = ["Automotive", "Agriculture", "Construction", "Tools & Accessories", "Oil & Gas", "Telecom & Switchgear"];
 
@@ -19,9 +20,11 @@ const products = [
 export default function ProductsPage() {
   return (
     <>
-      <PageHeader eyebrow="PRODUCT PROFILE" title="What we make.">
-        Turned, forged, cast and finished precision parts, each produced to customer drawing and inspected against
-        defined check sheets.
+      <PageHeader eyebrow="PRODUCT PROFILE" title={<MarketText dom="What we make." intl="What we deliver." />}>
+        <MarketText
+          dom="Turned, forged, cast and finished precision parts, machined in-house to your drawing and inspected against defined check sheets."
+          intl="Turned, forged, cast and finished precision parts. We manufacture select families in-house and source the rest through our audited partner network — one point of contact, full QCD ownership either way."
+        />
       </PageHeader>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
@@ -51,7 +54,12 @@ export default function ProductsPage() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto max-w-2xl px-6 py-16 text-center">
           <h2 className="font-heading mb-3 text-2xl font-bold text-ink">Don&apos;t see your part?</h2>
-          <p className="mb-7 text-body">If it&apos;s turned, milled, forged or cast, we likely make it. Send the drawing.</p>
+          <p className="mb-7 text-body">
+            <MarketText
+              dom="If it's turned, milled, forged or cast, we likely make it. Send the drawing."
+              intl="If it's turned, milled, forged or cast, we can manufacture or source it. Send the drawing and target volumes."
+            />
+          </p>
           <MovingBorderButton href="/contact/" borderRadius="0.75rem">
             Request a quote
           </MovingBorderButton>
