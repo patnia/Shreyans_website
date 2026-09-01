@@ -111,7 +111,7 @@ body {
     opacity: 0.9;
   }
   100% {
-    transform: translateY(-420px) translateX(18px);
+    transform: translateY(-640px) translateX(80px);
     opacity: 0;
   }
 }
