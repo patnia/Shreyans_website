@@ -7,6 +7,7 @@ import { ProcessSteps } from "@/components/ui/process-steps";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { ThreeDCarousel } from "@/components/ui/3d-carousel";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
+import { Embers } from "@/components/ui/embers";
 
 const featuredParts = [
   { src: "/images/products/shafts.jpg", alt: "Dowells, Pins & Shafts" },
@@ -27,8 +28,15 @@ const customerLogos = [
 export default function Home() {
   return (
     <>
-      <section className="bg-bg">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+      <section
+        className="relative overflow-hidden bg-bg"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 900px 600px at 82% 15%, color-mix(in srgb, var(--color-accent) 14%, var(--color-bg)) 0%, var(--color-bg) 60%)",
+        }}
+      >
+        <Embers />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:items-center">
           <div>
             <div className="mb-4">
               <MarketPill />
@@ -100,7 +108,7 @@ export default function Home() {
               <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
               <StatCounter value={50} suffix="+" label="MACHINES" />
             </div>
-            <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent-hover">
+            <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
               See the machine list
             </Link>
           </div>
@@ -117,7 +125,7 @@ export default function Home() {
           <ThreeDCarousel items={featuredParts} />
           <p className="mt-4 text-center text-xs text-muted">Spins on its own. Drag to rotate, click a part to inspect it.</p>
           <div className="mt-8 text-center">
-            <Link href="/products/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent-hover">
+            <Link href="/products/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
               View all products
             </Link>
           </div>
@@ -131,7 +139,7 @@ export default function Home() {
         </h2>
         <LogoMarquee logos={customerLogos} />
         <div className="mt-8 text-center">
-          <Link href="/customers/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent-hover">
+          <Link href="/customers/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
             See all customers
           </Link>
         </div>

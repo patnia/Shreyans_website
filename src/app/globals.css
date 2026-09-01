@@ -1,49 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #f2efe7;
-  --color-panel: #ffffff;
-  --color-ink: #1e231f;
-  --color-body: #3a4038;
-  --color-muted: #565b52;
-  --color-line: #e1ddcc;
+  /* Foundry & Forge — Shreyans Auto & Components (domestic), site default.
+     Carbon black ground with a molten ember-orange accent. */
+  --color-bg: #14100e;
+  --color-panel: #1d1613;
+  --color-ink: #f4ece4;
+  --color-body: #cdbfae;
+  --color-muted: #b8a99b;
+  --color-line: rgba(255, 138, 80, 0.16);
 
-  /* Default / international (Shreyans Agricon Products) — original editorial green */
-  --color-accent: #3c6b39;
-  --color-accent-hover: #2e5a2c;
-  --color-accent-light: #eaf1e6;
+  --color-accent: #ff8a50;
+  --color-accent-hover: #e8763c;
+  --color-accent-light: rgba(255, 138, 80, 0.1);
+  /* Text color to use ON TOP of an accent-colored background. */
+  --color-accent-ink: #1a0e07;
 
-  /* Default / international dark, original editorial olive-black */
-  --color-dark: #1b1f1a;
-  --color-dark-2: #262b24;
-  --color-dark-line: #333a31;
+  --color-dark: #0d0a09;
+  --color-dark-2: #1d1613;
+  --color-dark-line: rgba(255, 138, 80, 0.16);
 
   --color-dom: #1e5cc8;
   --color-dom-bg: #e7edfb;
 
   /* Fixed (non-swapping) brand colors, used where both entities appear
-     side by side, e.g. the gateway landing page. */
+     side by side. */
   --color-sac: #1e5cc8;
   --color-sac-hover: #17469a;
   --color-sap: #3c6b39;
   --color-sap-hover: #2e5a2c;
 
-  /* Fixed, market-independent gateway background — same warm off-white
-     as the rest of the site. */
   --color-gateway: #f2efe7;
   --color-gateway-2: #f2efe7;
+
+  --font-heading: var(--font-zilla-slab);
 }
 
-/* Domestic (Shreyans Auto and Components) brand blue + navy override the
-   sitewide theme once a visitor has chosen the domestic market. */
-[data-market="domestic"] {
-  --color-accent: #1e5cc8;
-  --color-accent-hover: #17469a;
-  --color-accent-light: #e7edfb;
+/* Precision & Prestige — Shreyans Agricon Products (export/international).
+   Deep navy ground with a muted brass/gold accent. */
+[data-market="international"] {
+  --color-bg: #0f1729;
+  --color-panel: #172238;
+  --color-ink: #f5f3ec;
+  --color-body: #c3cbda;
+  --color-muted: #96a3b8;
+  --color-line: rgba(201, 162, 39, 0.18);
 
-  --color-dark: #0d1b2a;
-  --color-dark-2: #16293d;
-  --color-dark-line: #223349;
+  --color-accent: #c9a227;
+  --color-accent-hover: #b58f22;
+  --color-accent-light: rgba(201, 162, 39, 0.12);
+  --color-accent-ink: #0f1729;
+
+  --color-dark: #0b1120;
+  --color-dark-2: #172238;
+  --color-dark-line: rgba(201, 162, 39, 0.18);
+
+  --font-heading: var(--font-bricolage);
 }
 
 @theme inline {
@@ -56,6 +68,7 @@
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
   --color-accent-light: var(--color-accent-light);
+  --color-accent-ink: var(--color-accent-ink);
   --color-dark: var(--color-dark);
   --color-dark-2: var(--color-dark-2);
   --color-dark-line: var(--color-dark-line);
@@ -67,7 +80,7 @@
   --color-sap-hover: var(--color-sap-hover);
   --color-gateway: var(--color-gateway);
   --color-gateway-2: var(--color-gateway-2);
-  --font-heading: var(--font-plex-condensed);
+  --font-heading: var(--font-heading);
   --font-mono: var(--font-plex-mono);
 }
 
@@ -86,6 +99,26 @@ body {
 }
 .animate-marquee {
   animation: marquee linear infinite;
+}
+
+/* Foundry & Forge signature motif — embers drifting up through the Home hero. */
+@keyframes ember-rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-420px) translateX(18px);
+    opacity: 0;
+  }
+}
+.animate-ember-rise {
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

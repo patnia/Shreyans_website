@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { Zilla_Slab, Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { MarketProvider } from "@/components/market-provider";
 
-const fraunces = Fraunces({
-  variable: "--font-plex-condensed",
+// Foundry & Forge display face — Shreyans Auto & Components (domestic)
+const zillaSlab = Zilla_Slab({
+  variable: "--font-zilla-slab",
   weight: ["600", "700"],
+  subsets: ["latin"],
+});
+
+// Precision & Prestige display face — Shreyans Agricon Products (export)
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
 });
 
@@ -27,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${zillaSlab.variable} ${bricolage.variable} ${plexMono.variable} h-full antialiased`}>
       <body className="min-h-full font-sans text-body">
         <MarketProvider>{children}</MarketProvider>
       </body>

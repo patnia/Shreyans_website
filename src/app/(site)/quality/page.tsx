@@ -63,7 +63,7 @@ export default function QualityPage() {
             <ul>
               {checklist.map((c) => (
                 <li key={c} className="flex items-center gap-3 border-b border-line py-3 text-[15px]">
-                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent text-[10px] text-white">✓</span>
+                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent text-[10px] text-accent-ink">✓</span>
                   {c}
                 </li>
               ))}

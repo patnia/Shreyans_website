@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/page-header";
 import { ProcessSteps } from "@/components/ui/process-steps";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { RfqForm } from "@/components/rfq-form";
+import { TurnedRing } from "@/components/ui/turned-ring";
 import { useMarket } from "@/components/market-provider";
 
 const markets = ["USA", "Canada", "Indonesia"];
@@ -19,7 +20,11 @@ export default function ExportPage() {
 
   return (
     <>
-      <PageHeader eyebrow="EXPORT · SHREYANS AGRICON PRODUCTS" title="Sourcing precision components from India.">
+      <PageHeader
+        eyebrow="EXPORT · SHREYANS AGRICON PRODUCTS"
+        title="Sourcing precision components from India."
+        decoration={<TurnedRing />}
+      >
         The same shop, certifications and machine list you&apos;ll find on the rest of this site — run for
         international buyers as a single-source S.P.A. partner: we source, produce and audit on your behalf.
       </PageHeader>

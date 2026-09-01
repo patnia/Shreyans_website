@@ -29,7 +29,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur-md">
       <div className="mx-auto flex h-[92px] max-w-6xl items-center justify-between gap-4 px-6">
         <Link href="/home/" className="flex items-center">
-          <Image src={logoSrc} alt={logoAlt} width={220} height={58} className="h-14 w-auto" priority />
+          <Image src={logoSrc} alt={logoAlt} width={220} height={58} className="h-14 w-auto rounded-md bg-white p-1.5" priority />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6">
@@ -51,7 +51,7 @@ export function Header() {
         <div className="hidden lg:flex flex-none items-center gap-4">
           <Link
             href="/contact/"
-            className="inline-block flex-none whitespace-nowrap rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-hover"
+            className="inline-block flex-none whitespace-nowrap rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink transition-colors hover:bg-accent-hover"
           >
             Request a quote
           </Link>

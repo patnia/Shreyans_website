@@ -138,7 +138,7 @@ export function RfqForm() {
       <button
         onClick={submit}
         disabled={status === "sending"}
-        className="rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent-hover disabled:opacity-60"
+        className="rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send enquiry"}
       </button>

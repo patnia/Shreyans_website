@@ -50,7 +50,7 @@ export function MovingBorderButton({
 
       <div
         className={cn(
-          "relative flex h-full w-full items-center justify-center bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover",
+          "relative flex h-full w-full items-center justify-center bg-accent px-6 py-3 text-sm font-bold text-accent-ink transition-colors hover:bg-accent-hover",
           className
         )}
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}

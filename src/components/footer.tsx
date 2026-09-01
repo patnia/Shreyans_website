@@ -10,7 +10,7 @@ export function Footer() {
   const logoAlt = market === "domestic" ? "Shreyans Auto and Components" : "Shreyans Agricon Products";
 
   return (
-    <footer className="bg-dark text-[#A7C0A3]">
+    <footer className="bg-dark text-body">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
         <div>
           <Image
@@ -26,19 +26,19 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-[#EAF3E8]">EXPLORE</h4>
+          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-ink">EXPLORE</h4>
           <FooterLinks />
         </div>
 
         <div>
-          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-[#EAF3E8]">CERTIFIED</h4>
+          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-ink">CERTIFIED</h4>
           <p className="py-1 text-sm">IATF 16949:2016</p>
           <p className="py-1 text-sm">ZED Certified</p>
           <p className="py-1 text-sm">Maruti Green Zone Supplier</p>
         </div>
 
         <div>
-          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-[#EAF3E8]">REACH US</h4>
+          <h4 className="mb-3 font-mono text-[12.5px] tracking-[0.1em] text-ink">REACH US</h4>
           <p className="py-1 text-sm">F 4 &amp; 5, FIT, Sector 57, Faridabad 121004, Haryana</p>
           <a className="block py-1 text-sm hover:text-white" href="mailto:suparsh@shreyansagricon.com">
             suparsh@shreyansagricon.com
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 border-t border-white/10 px-6 py-4 font-mono text-[11.5px] text-[#86A083]">
+      <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 border-t border-white/10 px-6 py-4 font-mono text-[11.5px] text-muted">
         <span>© 1989–2026 Shreyans Auto &amp; Components Pvt. Ltd. · shreyansagricon.com</span>
         <span>IATF 16949:2016 · ZED · 100% OEM</span>
       </div>
