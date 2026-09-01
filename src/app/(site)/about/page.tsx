@@ -29,6 +29,25 @@ export default function AboutPage() {
         />
       </PageHeader>
 
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MILESTONES</div>
+          <h2 className="font-heading mb-10 text-3xl font-bold text-ink">How we grew.</h2>
+          <div className="relative">
+            <div className="absolute left-2 right-2 top-2 hidden h-px bg-line md:block" />
+            <div className="grid gap-8 md:grid-cols-4">
+              {milestones.map((m) => (
+                <div key={m.yr}>
+                  <span className="relative z-10 mb-4 block h-4 w-4 rounded-full border-4 border-bg bg-accent md:border-[color:var(--color-panel)]" />
+                  <div className="font-mono text-lg font-bold text-ink">{m.yr}</div>
+                  <p className="mt-1 text-sm text-body">{m.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
         <div>
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">OUR STORY</div>
@@ -44,22 +63,6 @@ export default function AboutPage() {
         </div>
         <div className="overflow-hidden rounded-2xl border border-line">
           <Image src="/images/shopfloor.jpg" alt="Shop floor" width={640} height={480} className="h-full w-full object-cover" />
-        </div>
-      </section>
-
-      <section className="border-y border-line bg-panel">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MILESTONES</div>
-          <h2 className="font-heading mb-10 text-3xl font-bold text-ink">How we grew.</h2>
-          <div className="max-w-2xl border-l-2 border-line pl-7">
-            {milestones.map((m) => (
-              <div key={m.yr} className="relative pb-8 last:pb-0">
-                <span className="absolute -left-[33px] top-1 h-3.5 w-3.5 rounded-full border-4 border-bg bg-accent md:border-[color:var(--color-panel)]" />
-                <div className="font-mono text-lg font-bold text-ink">{m.yr}</div>
-                <p className="mt-1 text-sm text-body">{m.text}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
