@@ -24,7 +24,7 @@ export default function AboutPage() {
         title="Three decades in precision engineering."
       >
         <MarketText
-          dom="For over thirty years, Shreyans Auto & Components (SAC) has been a reliable source of high-precision machined parts and complex sub-assemblies for India's major industrial and automotive clients."
+          dom="For over thirty years, Shreyans Auto & Components (SAC) has been a reliable source of high-precision machined parts and complex sub-assemblies for India's major industrial and automotive clients, and, through Shreyans Agricon Products (SAP), a single-source export partner to the world."
           intl="For over thirty years, Shreyans Group has manufactured high-precision machined parts and complex sub-assemblies for India's major OEMs. Shreyans AgriCon Products (SAP) brings that same discipline to you as a single-source export partner."
         />
       </PageHeader>

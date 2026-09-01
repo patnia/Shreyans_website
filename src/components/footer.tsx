@@ -82,6 +82,7 @@ function FooterLinks() {
     { href: "/customers/", label: "Customers" },
     { href: "/quality/", label: "Quality" },
     { href: "/contact/", label: "Contact" },
+    { href: "/export/", label: "Export enquiries" },
   ];
   return (
     <>
