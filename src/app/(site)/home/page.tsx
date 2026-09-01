@@ -5,7 +5,6 @@ import { MarketText, MarketPill } from "@/components/market-text";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { ProcessSteps } from "@/components/ui/process-steps";
 import { StatCounter } from "@/components/ui/stat-counter";
-import { ViewerPanel } from "@/components/ui/viewer-panel";
 import { ThreeDCarousel } from "@/components/ui/3d-carousel";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
 
@@ -109,11 +108,6 @@ export default function Home() {
             <Image src="/images/company/capability.jpg" alt="CNC machining floor" width={640} height={480} className="h-full w-full object-cover" />
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">EXPLORE IN 3D</div>
-        <ViewerPanel />
       </section>
 
       <section className="border-y border-line bg-panel">

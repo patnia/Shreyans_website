@@ -48,10 +48,10 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex flex-none items-center gap-4">
           <Link
             href="/contact/"
-            className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-hover"
+            className="inline-block flex-none whitespace-nowrap rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-hover"
           >
             Request a quote
           </Link>
@@ -59,7 +59,7 @@ export function Header() {
           <a
             href="/documents/Shreyans-Brochure.pdf"
             download
-            className="inline-block rounded-lg border border-accent px-5 py-2.5 text-sm font-bold text-accent-hover transition-colors hover:bg-accent-light"
+            className="inline-block flex-none whitespace-nowrap rounded-lg border border-accent px-5 py-2.5 text-sm font-bold text-accent-hover transition-colors hover:bg-accent-light"
           >
             Brochure
           </a>
