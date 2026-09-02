@@ -101,6 +101,7 @@ export default function CapabilitiesPage() {
             </div>
           </div>
         </div>
+        {/* Quality board photos temporarily hidden — revisit once we have better shots.
         <div className="grid gap-5 md:grid-cols-3">
           <div className="overflow-hidden rounded-xl border border-line">
             <Image src="/images/company/quality-1.jpg" alt="Shop floor safety board" width={400} height={300} className="h-full w-full object-cover" />
@@ -112,6 +113,7 @@ export default function CapabilitiesPage() {
             <Image src="/images/company/quality-3.jpg" alt="Red bin quality tracking board" width={400} height={300} className="h-full w-full object-cover" />
           </div>
         </div>
+        */}
       </section>
 
       <section className="border-t border-line bg-panel">
