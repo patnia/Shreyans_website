@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { MarketText, MarketPill } from "@/components/market-text";
 import { MovingBorderButton } from "@/components/ui/moving-border";
-import { ProcessSteps } from "@/components/ui/process-steps";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { ThreeDCarousel } from "@/components/ui/3d-carousel";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
@@ -81,40 +80,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">SOURCE · PRODUCE · AUDIT</div>
-        <p className="mb-10 max-w-[64ch] text-body">
-          Most domestic customers come to us to manufacture a part to print. For export customers, we run the full S.P.A. model: a single-source shop with end-to-end QCD.
-        </p>
-        <ProcessSteps
-          steps={[
-            { num: "01 / PRODUCE", title: "We machine the part", desc: "CNC turning, sliding-head automats, milling, grinding and assembly across brass, stainless, aluminium and specialty alloys.", image: "/images/company/produce.jpg" },
-            { num: "02 / SOURCE", title: "We find the supplier", desc: "We procure forgings and castings from our partner network and machine them to your requirement: one channel for the whole part.", image: "/images/company/source.jpg" },
-            { num: "03 / AUDIT", title: "We check the quality", desc: "Factory, process and product audits, with in-process and final inspection against your check sheets before dispatch.", image: "/images/company/audit.jpg" },
-          ]}
-        />
-      </section>
-
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
-          <div>
-            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CAPABILITIES</div>
-            <h2 className="font-heading mb-4 max-w-[20ch] text-3xl font-bold text-ink">Over 50 machines, one precision standard.</h2>
-            <p className="mb-8 max-w-[60ch] text-body">
-              CNC turning, 5-axis sliding-head automats, machining centres and a full in-house metrology lab, holding diameter accuracy within 2 microns and surface finish below Ra 0.5.
-            </p>
-            <div className="mb-8 flex gap-10">
-              <StatCounter value={2} suffix="µm" label="DIA ACCURACY" />
-              <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
-              <StatCounter value={50} suffix="+" label="MACHINES" />
-            </div>
-            <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
-              See the machine list
-            </Link>
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CAPABILITIES</div>
+          <h2 className="font-heading mb-4 text-3xl font-bold text-ink">Over 50 machines, one precision standard.</h2>
+          <p className="mx-auto mb-8 max-w-[60ch] text-body">
+            CNC turning, 5-axis sliding-head automats, machining centres and a full in-house metrology lab, holding diameter accuracy within 2 microns and surface finish below Ra 0.5.
+          </p>
+          <div className="mb-8 flex justify-center gap-10">
+            <StatCounter value={2} suffix="µm" label="DIA ACCURACY" />
+            <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
+            <StatCounter value={50} suffix="+" label="MACHINES" />
           </div>
-          <div className="overflow-hidden rounded-2xl border border-line">
-            <Image src="/images/company/capability.jpg" alt="CNC machining floor" width={640} height={480} className="h-full w-full object-cover" />
-          </div>
+          <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
+            See the machine list
+          </Link>
         </div>
       </section>
 
