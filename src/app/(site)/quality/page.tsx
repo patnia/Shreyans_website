@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
-import { StackedCards } from "@/components/ui/stacked-cards";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 
 const checklist = [
@@ -21,11 +19,12 @@ const badges = [
 
 const castingStandards = ["ISO 8062", "DIN 1680 Class II", "IS 11160 Class-II", "VDG P690", "ISO 276B"];
 
-const certCards = [
-  { id: "iatf", img: "/images/certs/iatf-16949.png", title: "IATF 16949:2016", sub: "Automotive quality management" },
-  { id: "zed", img: "/images/certs/zed.png", title: "ZED Certified", sub: "Zero Defect · Zero Effect" },
-  { id: "mgz", img: "/images/certs/maruti-green-zone.png", title: "Maruti Green Zone", sub: "Supplier performance recognition" },
-];
+// Actual cert scans not on hand yet — see the commented-out section below.
+// const certCards = [
+//   { id: "iatf", img: "/images/certs/iatf-16949.png", title: "IATF 16949:2016", sub: "Automotive quality management" },
+//   { id: "zed", img: "/images/certs/zed.png", title: "ZED Certified", sub: "Zero Defect · Zero Effect" },
+//   { id: "mgz", img: "/images/certs/maruti-green-zone.png", title: "Maruti Green Zone", sub: "Supplier performance recognition" },
+// ];
 
 export default function QualityPage() {
   return (
@@ -35,6 +34,8 @@ export default function QualityPage() {
         in-process and final inspection before dispatch.
       </PageHeader>
 
+      {/* Certification scans not on hand yet — badges below carry the names until
+      we have the actual documents to show.
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CERTIFICATIONS</div>
         <h2 className="font-heading mb-10 text-3xl font-bold text-ink">Independently verified.</h2>
@@ -54,6 +55,7 @@ export default function QualityPage() {
         />
         <p className="mx-auto mt-6 max-w-sm text-center text-xs text-muted">Hover to preview, click to view all three certifications</p>
       </section>
+      */}
 
       <section className="border-y border-line bg-panel">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2">
