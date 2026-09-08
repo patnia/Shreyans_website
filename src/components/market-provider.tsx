@@ -2,6 +2,14 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
+// These two literal values also drive the color/font theme in globals.css
+// ([data-market="international"] overrides :root), which is why they're
+// still named this way. As of the Agricon-primary restructure, "domestic"
+// is the default state and now means the Agricon-led site (most pages,
+// including Home) — "international" is the override, triggered only by
+// visiting /domestic/, and now means the SAC-focused content. The names no
+// longer match their content; only the CSS selector cares about the literal
+// strings, so don't read too much into them.
 type Market = "domestic" | "international";
 
 const MarketContext = createContext<{

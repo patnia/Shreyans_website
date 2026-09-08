@@ -20,10 +20,10 @@ const products = [
 export default function ProductsPage() {
   return (
     <>
-      <PageHeader eyebrow="PRODUCT PROFILE" title={<MarketText dom="What we make." intl="What we deliver." />}>
+      <PageHeader eyebrow="PRODUCT PROFILE" title={<MarketText dom="What we deliver." intl="What we make." />}>
         <MarketText
-          dom="Turned, forged, cast and finished precision parts, machined in-house to your drawing and inspected against defined check sheets."
-          intl="Turned, forged, cast and finished precision parts. We manufacture select families in-house and source the rest through our audited partner network — one point of contact, full QCD ownership either way."
+          dom="Turned, forged, cast and finished precision parts. We manufacture select families in-house and source the rest through our audited partner network — one point of contact, full QCD ownership either way."
+          intl="Turned, forged, cast and finished precision parts, machined in-house to your drawing and inspected against defined check sheets."
         />
       </PageHeader>
 
@@ -56,8 +56,8 @@ export default function ProductsPage() {
           <h2 className="font-heading mb-3 text-2xl font-bold text-ink">Don&apos;t see your part?</h2>
           <p className="mb-7 text-body">
             <MarketText
-              dom="If it's turned, milled, forged or cast, we likely make it. Send the drawing."
-              intl="If it's turned, milled, forged or cast, we can manufacture or source it. Send the drawing and target volumes."
+              dom="If it's turned, milled, forged or cast, we can manufacture or source it. Send the drawing and target volumes."
+              intl="If it's turned, milled, forged or cast, we likely make it. Send the drawing."
             />
           </p>
           <MovingBorderButton href="/contact/" borderRadius="0.75rem">

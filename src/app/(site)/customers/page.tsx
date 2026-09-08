@@ -28,19 +28,19 @@ export default function CustomersPage() {
   return (
     <>
       <PageHeader
-        eyebrow={<MarketText dom="KEY CUSTOMERS · 100% OEM SUPPLIES" intl="PROVEN AT SCALE" />}
-        title={<MarketText dom="Trusted by India's OEMs." intl="The same standard trusted by India's biggest OEMs." />}
+        eyebrow={<MarketText dom="PROVEN AT SCALE" intl="KEY CUSTOMERS · 100% OEM SUPPLIES" />}
+        title={<MarketText dom="The same standard trusted by India's biggest OEMs." intl="Trusted by India's OEMs." />}
       >
         <MarketText
-          dom="We supply directly to original equipment manufacturers across automotive, agriculture, construction and energy."
-          intl="Before we source or manufacture for you, this is the quality bar we already hold in daily production for India's largest industrial and automotive OEMs — the same process discipline we bring to your export program."
+          dom="Before we source or manufacture for you, this is the quality bar we already hold in daily production for India's largest industrial and automotive OEMs — the same process discipline we bring to your export program."
+          intl="We supply directly to original equipment manufacturers across automotive, agriculture, construction and energy."
         />
       </PageHeader>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <LogoMarquee logos={logos} speed={40} />
         <p className="mt-6 text-center text-xs text-muted">
-          <MarketOnly show="international">Our established domestic OEM customer base, shown here as proof of scale and quality standard.</MarketOnly>
+          <MarketOnly show="domestic">Our established domestic OEM customer base, shown here as proof of scale and quality standard.</MarketOnly>
         </p>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6">
@@ -53,7 +53,7 @@ export default function CustomersPage() {
         </div>
       </section>
 
-      <MarketOnly show="international">
+      <MarketOnly show="domestic">
         <section className="border-y border-line bg-panel">
           <div className="mx-auto max-w-6xl px-6 py-16">
             <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">EXPORT MARKETS</div>

@@ -24,8 +24,8 @@ export default function ContactPage() {
     <>
       <PageHeader eyebrow="CONTACT" title="Send us your part.">
         <MarketText
-          dom="Domestic enquiries are answered within 2 business days."
-          intl="Share your drawing and target volumes and we'll come back with an export sourcing plan."
+          dom="Share your drawing and target volumes and we'll come back with an export sourcing plan."
+          intl="Domestic enquiries are answered within 2 business days."
         />
       </PageHeader>
 
