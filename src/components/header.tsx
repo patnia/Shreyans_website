@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { useMarket } from "@/components/market-provider";
 
 const NAV = [
   { href: "/home/", label: "Home" },
@@ -14,22 +13,19 @@ const NAV = [
   { href: "/customers/", label: "Customers" },
   { href: "/quality/", label: "Quality" },
   { href: "/contact/", label: "Contact" },
-  { href: "/export/", label: "Export" },
+  { href: "/domestic/", label: "Domestic" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const active = `${pathname.replace(/\/$/, "")}/`;
-  const { market } = useMarket();
-  const logoSrc = market === "domestic" ? "/images/logo-auto-horizontal.png" : "/images/logo-agricon-horizontal.png";
-  const logoAlt = market === "domestic" ? "Shreyans Auto and Components" : "Shreyans Agricon Products";
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur-md">
       <div className="mx-auto flex h-[92px] max-w-6xl items-center justify-between gap-4 px-6">
         <Link href="/home/" className="flex items-center">
-          <Image src={logoSrc} alt={logoAlt} width={220} height={58} className="h-14 w-auto rounded-md bg-white p-1.5" priority />
+          <Image src="/images/logo-shreyans-horizontal.png" alt="Shreyans" width={220} height={58} className="h-14 w-auto rounded-md bg-white p-1.5" priority />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6">

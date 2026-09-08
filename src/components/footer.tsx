@@ -2,20 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useMarket } from "@/components/market-provider";
 
 export function Footer() {
-  const { market } = useMarket();
-  const logoSrc = market === "domestic" ? "/images/logo-auto-horizontal.png" : "/images/logo-agricon-horizontal.png";
-  const logoAlt = market === "domestic" ? "Shreyans Auto and Components" : "Shreyans Agricon Products";
-
   return (
     <footer className="bg-dark text-body">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
         <div>
           <Image
-            src={logoSrc}
-            alt={logoAlt}
+            src="/images/logo-shreyans-horizontal.png"
+            alt="Shreyans"
             width={140}
             height={36}
             className="mb-4 h-9 w-auto rounded-md bg-white p-1"
@@ -82,7 +77,7 @@ function FooterLinks() {
     { href: "/customers/", label: "Customers" },
     { href: "/quality/", label: "Quality" },
     { href: "/contact/", label: "Contact" },
-    { href: "/export/", label: "Export enquiries" },
+    { href: "/domestic/", label: "Domestic enquiries" },
   ];
   return (
     <>
