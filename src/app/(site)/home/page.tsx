@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
-import { MarketText, MarketPill } from "@/components/market-text";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { ProcessSteps } from "@/components/ui/process-steps";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { ThreeDCarousel } from "@/components/ui/3d-carousel";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
@@ -37,9 +37,6 @@ export default function Home() {
         <Embers />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:items-center">
           <div>
-            <div className="mb-4">
-              <MarketPill />
-            </div>
             <div className="mb-4 font-mono text-xs tracking-[0.16em] text-muted">
               PRECISION MACHINED COMPONENTS · SINCE 1989
             </div>
@@ -47,14 +44,12 @@ export default function Home() {
               Precision parts, built to <em className="not-italic text-accent-hover">your drawing.</em>
             </h1>
             <p className="mb-7 max-w-[42ch] text-body">
-              <MarketText
-                dom="Shreyans Auto & Components supplies turned parts, castings and sub-assemblies to India's leading OEMs, IATF 16949:2016 and ZED certified, from our plant in Faridabad."
-                intl="We machine to your spec, source from our partner network and audit quality on your behalf, managing global QCD so India runs like an extension of your plant. Exporting to the USA, Canada and Indonesia."
-              />
+              We machine to your spec, source from our partner network and audit quality on your behalf, managing
+              global QCD so India runs like an extension of your plant. Exporting to the USA, Canada and Indonesia.
             </p>
             <div className="mb-7 flex flex-wrap gap-3">
               <MovingBorderButton href="/contact/" borderRadius="0.75rem">
-                <MarketText dom="Request a quote" intl="Start sourcing" />
+                Start sourcing
               </MovingBorderButton>
               <Link
                 href="/capabilities/"
@@ -78,6 +73,21 @@ export default function Home() {
             </span>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">SOURCE · PRODUCE · AUDIT</div>
+        <p className="mb-10 max-w-[64ch] text-body">
+          Shreyans Agricon Products runs a single-source S.P.A. model for international buyers: a single point of
+          contact that sources, produces and audits your part end to end.
+        </p>
+        <ProcessSteps
+          steps={[
+            { num: "01 / SOURCE", title: "We find the supplier", desc: "We procure forgings and castings from our partner network and machine them to your requirement: one channel for the whole part.", image: "/images/company/source.jpg" },
+            { num: "02 / PRODUCE", title: "We machine the part", desc: "CNC turning, sliding-head automats, milling, grinding and assembly across brass, stainless, aluminium and specialty alloys.", image: "/images/company/produce.jpg" },
+            { num: "03 / AUDIT", title: "We check the quality", desc: "Factory, process and product audits, with in-process and final inspection against your check sheets before dispatch.", image: "/images/company/audit.jpg" },
+          ]}
+        />
       </section>
 
       <section className="border-y border-line bg-panel">
@@ -128,12 +138,7 @@ export default function Home() {
       <section className="border-t border-line bg-panel">
         <div className="mx-auto max-w-2xl px-6 py-16 text-center">
           <h2 className="font-heading mb-3 text-2xl font-bold text-ink">Send us your part.</h2>
-          <p className="mb-7 text-body">
-            <MarketText
-              dom="Domestic enquiries answered within 2 business days."
-              intl="Share your drawing and target volumes for an export sourcing plan."
-            />
-          </p>
+          <p className="mb-7 text-body">Share your drawing and target volumes for an export sourcing plan.</p>
           <MovingBorderButton href="/contact/" borderRadius="0.75rem">
             Request a quote
           </MovingBorderButton>
