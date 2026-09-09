@@ -13,7 +13,6 @@ const products = [
   { img: "boss-sensors.jpg", name: "Boss Sensors", desc: "Bar turning, investment casting, milling and pre-curved forms.", meta: "Stainless steel 303/304/430" },
   { img: "profile.jpg", name: "Profile Machining", desc: "Profile-machined components to drawing.", meta: "Brass, aluminium" },
   { img: "castings.jpg", name: "Investment Castings", desc: "Up to 800×800×550 mm, 15 g to 100 kg per piece.", meta: "Ra 3.0–6.0 · ISO 8062 / DIN 1680 II · alloy, duplex & PH stainless, nickel alloys" },
-  { img: "oil-gas.jpg", name: "Oil & Gas Parts", desc: "Valves, seats, flanges, gates, stems, bonnets, bearing caps, retainers.", meta: "Steel 4130, SS 316/410, 17-4 PH · nitriding, lapping, TC coating" },
   { img: "telecom.jpg", name: "Telecom & Switchgear", desc: "Grub screws, inserts and terminals for surge arrestors and DC blocks.", meta: "Brass, beryllium copper, nickel silver" },
 ];
 

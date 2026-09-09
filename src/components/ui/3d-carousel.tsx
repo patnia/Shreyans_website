@@ -100,8 +100,8 @@ const Carousel = memo(
                   fill
                   className="pointer-events-none object-cover"
                 />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark/90 to-transparent px-2.5 pb-2 pt-5 text-center font-mono text-[10.5px] leading-tight text-white">
-                  {item.alt}
+                <span className="absolute inset-x-0 bottom-0 flex h-2/3 items-end bg-gradient-to-t from-dark from-15% via-dark/80 via-45% to-transparent px-2.5 pb-2.5 text-center font-mono text-[12px] font-medium leading-tight text-white">
+                  <span className="w-full">{item.alt}</span>
                 </span>
               </div>
             </motion.div>

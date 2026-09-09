@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { MovingBorderButton } from "@/components/ui/moving-border";
-import { ProcessSteps } from "@/components/ui/process-steps";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { ThreeDCarousel } from "@/components/ui/3d-carousel";
 import { LogoMarquee } from "@/components/ui/logo-marquee";
@@ -16,7 +15,6 @@ const featuredParts = [
   { src: "/images/products/boss-sensors.jpg", alt: "Boss Sensors" },
   { src: "/images/products/profile.jpg", alt: "Profile Machining" },
   { src: "/images/products/castings.jpg", alt: "Investment Castings" },
-  { src: "/images/products/oil-gas.jpg", alt: "Oil & Gas Parts" },
   { src: "/images/products/telecom.jpg", alt: "Telecom & Switchgear" },
 ];
 
@@ -35,7 +33,7 @@ export default function Home() {
         }}
       >
         <Embers />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pt-10 pb-10 md:grid-cols-[1.05fr_0.95fr] md:items-end">
           <div>
             <div className="mb-4 font-mono text-xs tracking-[0.16em] text-muted">
               PRECISION MACHINED COMPONENTS · SINCE 1989
@@ -44,8 +42,8 @@ export default function Home() {
               Precision parts, built to <em className="not-italic text-accent-hover">your drawing.</em>
             </h1>
             <p className="mb-7 max-w-[42ch] text-body">
-              We machine to your spec, source from our partner network and audit quality on your behalf, managing
-              global QCD so India runs like an extension of your plant. Exporting to the USA, Canada and Indonesia.
+              Precision machined components for domestic and international buyers, manufactured in Faridabad, India
+              and exported to the USA, Canada and Indonesia.
             </p>
             <div className="mb-7 flex flex-wrap gap-3">
               <MovingBorderButton href="/contact/" borderRadius="0.75rem">
@@ -75,43 +73,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">SOURCE · PRODUCE · AUDIT</div>
-        <p className="mb-10 max-w-[64ch] text-body">
-          Shreyans Agricon Products runs a single-source S.P.A. model for international buyers: a single point of
-          contact that sources, produces and audits your part end to end.
-        </p>
-        <ProcessSteps
-          steps={[
-            { num: "01 / SOURCE", title: "We find the supplier", desc: "We procure forgings and castings from our partner network and machine them to your requirement: one channel for the whole part.", image: "/images/company/source.jpg" },
-            { num: "02 / PRODUCE", title: "We machine the part", desc: "CNC turning, sliding-head automats, milling, grinding and assembly across brass, stainless, aluminium and specialty alloys.", image: "/images/company/produce.jpg" },
-            { num: "03 / AUDIT", title: "We check the quality", desc: "Factory, process and product audits, with in-process and final inspection against your check sheets before dispatch.", image: "/images/company/audit.jpg" },
-          ]}
-        />
-      </section>
-
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CAPABILITIES</div>
-          <h2 className="font-heading mb-4 text-3xl font-bold text-ink">Over 50 machines, one precision standard.</h2>
-          <p className="mx-auto mb-8 max-w-[60ch] text-body">
-            CNC turning, 5-axis sliding-head automats, machining centres and a full in-house metrology lab, holding diameter accuracy within 2 microns and surface finish below Ra 0.5.
-          </p>
-          <div className="mb-8 flex justify-center gap-10">
-            <StatCounter value={2} suffix="µm" label="DIA ACCURACY" />
-            <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
-            <StatCounter value={50} suffix="+" label="MACHINES" />
-          </div>
-          <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
-            See the machine list
-          </Link>
-        </div>
-      </section>
-
-      <section className="border-y border-line bg-panel">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-6 pt-12 pb-20">
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">PRODUCT PROFILE</div>
-          <h2 className="font-heading mb-8 max-w-[24ch] text-3xl font-bold text-ink">Precision parts across nine product families.</h2>
+          <h2 className="font-heading mb-8 max-w-[24ch] text-3xl font-bold text-ink">Precision parts across various product families.</h2>
           <ThreeDCarousel items={featuredParts} />
           <p className="mt-4 text-center text-xs text-muted">Spins on its own. Drag to rotate, click a part to inspect it.</p>
           <div className="mt-8 text-center">
@@ -131,6 +96,24 @@ export default function Home() {
         <div className="mt-8 text-center">
           <Link href="/customers/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
             See all customers
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-y border-line bg-panel">
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CAPABILITIES</div>
+          <h2 className="font-heading mb-4 text-3xl font-bold text-ink">Over 50 machines, one precision standard.</h2>
+          <p className="mx-auto mb-8 max-w-[60ch] text-body">
+            CNC turning, 5-axis sliding-head automats, vertical machining centres and a full in-house quality standard room — VMM, surface roughness tester and contour tracer among the equipment on the floor — holding diameter accuracy within 2 microns and surface finish below Ra 0.5.
+          </p>
+          <div className="mb-8 flex justify-center gap-10">
+            <StatCounter value={2} suffix="µm" label="DIA ACCURACY" />
+            <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
+            <StatCounter value={50} suffix="+" label="MACHINES" />
+          </div>
+          <Link href="/capabilities/" className="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink hover:bg-accent-hover">
+            See the machine list
           </Link>
         </div>
       </section>
