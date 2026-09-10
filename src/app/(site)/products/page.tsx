@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { MarketText } from "@/components/market-text";
 
-const sectors = ["Automotive", "Agriculture", "Construction", "Tools & Accessories", "Oil & Gas", "Telecom & Switchgear"];
+const sectors = ["Automotive", "Agriculture", "Construction", "Tools & Accessories", "Telecom & Switchgear"];
 
 const products = [
   { img: "shafts.jpg", name: "Dowells, Pins & Shafts", desc: "Ground, polished, passivated, electroplated and super-finished.", meta: "Stainless steel, brass · Ø within 2µm · below Ra 0.5" },
@@ -26,7 +26,7 @@ export default function ProductsPage() {
         />
       </PageHeader>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 pt-10 pb-20">
         <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">SECTORS WE SERVE</div>
         <div className="mb-10 flex flex-wrap gap-2">
           {sectors.map((s) => (
