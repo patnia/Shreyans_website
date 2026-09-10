@@ -27,7 +27,8 @@ const checklist = [
 ];
 
 const materials = ["Brass", "Stainless steel", "12L14", "Aluminium", "Copper", "Teflon", "PEEK", "Nickel silver", "Inconel", "Monel"];
-const metrology = ["VMM", "Contour tracer", "Surface roughness tester", "Air gauges", "Hardness tester", "Profile projector", "Digital micrometer / vernier", "Surface plate & height gauge"];
+const featuredEquipment = ["VMM", "Contour tracer", "Surface roughness tester"];
+const metrology = ["Air gauges", "Hardness tester", "Profile projector", "Digital micrometer / vernier", "Surface plate & height gauge"];
 
 function Tag({ label }: { label: string }) {
   return <span className="rounded-md border border-line bg-panel px-3 py-1.5 text-[13px] text-ink">{label}</span>;
@@ -37,11 +38,12 @@ export default function CapabilitiesPage() {
   return (
     <>
       <PageHeader eyebrow="CAPABILITIES" title="Machining and inspection, under one roof.">
-        Over 50 machines across CNC turning, 5-axis sliding-head automats, Traubs and machining centres, backed by a
-        full in-house metrology lab.
+        CNC turning, 5-axis sliding-head automats, Traubs and vertical machining centres on one floor, backed by a
+        full in-house quality standard room — VMM, contour tracer and surface roughness tester among the equipment
+        that checks every part before it ships.
       </PageHeader>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 pt-10 pb-20">
         <div className="mb-12 flex flex-wrap gap-10">
           <StatCounter value={2} suffix="µm" label="DIAMETER ACCURACY" />
           <StatCounter value={0.5} decimals={1} prefix="Ra " label="SURFACE FINISH" />
@@ -60,60 +62,83 @@ export default function CapabilitiesPage() {
       </section>
 
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
-          <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line">
-            <Image src="/images/process.png" alt="Precision machined parts" width={640} height={480} className="h-full w-full object-cover" />
-          </div>
-          <div>
-            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">PROCESS</div>
-            <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
-              Turning, grinding, forging, finishing, and full inspection.
-            </h2>
-            <p className="mb-6 max-w-[60ch] text-body">
-              We machine to print and procure forgings and castings from our partner network to machine in-house.
-              Finishing includes grinding, polishing, passivating, electroplating and super-finishing, followed by
-              documented inspection.
-            </p>
-            <ul>
-              {checklist.map((c) => (
-                <li key={c} className="flex items-center gap-3 border-b border-line py-3 text-[15px]">
-                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent text-[10px] text-accent-ink">✓</span>
-                  {c}
-                </li>
-              ))}
-            </ul>
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="mb-6 font-mono text-xs font-bold tracking-[0.16em] text-muted">ON THE FLOOR</div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line">
+              <Image src="/images/capabilities/floor-1.jpg" alt="Ace sliding-head automat on the shop floor" width={400} height={300} className="h-full w-full object-cover" />
+            </div>
+            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line">
+              <Image src="/images/capabilities/floor-2.jpg" alt="BFW vertical machining centres" width={400} height={300} className="h-full w-full object-cover" />
+            </div>
+            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line">
+              <Image src="/images/capabilities/floor-3.jpg" alt="Global CNC lathe" width={400} height={300} className="h-full w-full object-cover" />
+            </div>
+            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line">
+              <Image src="/images/capabilities/floor-4.jpg" alt="Operator running a vertical machining centre" width={400} height={300} className="h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-10 grid gap-10 md:grid-cols-2">
-          <div>
-            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MATERIALS WE MACHINE</div>
-            <div className="flex flex-wrap gap-2">
-              {materials.map((m) => <Tag key={m} label={m} />)}
+      <section className="mx-auto grid max-w-6xl items-end gap-12 px-6 py-12 md:grid-cols-2">
+        <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line">
+          <Image src="/images/process.png" alt="Precision machined parts" width={640} height={480} className="h-full w-full object-cover" />
+        </div>
+        <div>
+          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">PROCESS</div>
+          <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
+            Turning, grinding, forging, finishing, and full inspection.
+          </h2>
+          <p className="mb-6 max-w-[60ch] text-body">
+            We machine to print and procure forgings and castings from our partner network to machine in-house.
+            Finishing includes grinding, polishing, passivating, electroplating and super-finishing, followed by
+            documented inspection.
+          </p>
+          <ul>
+            {checklist.map((c) => (
+              <li key={c} className="flex items-center gap-3 border-b border-line py-3 text-[15px]">
+                <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent text-[10px] text-accent-ink">✓</span>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-y border-line bg-panel">
+        <div className="mx-auto grid max-w-6xl items-end gap-12 px-6 py-12 md:grid-cols-2">
+          <div className="md:order-2">
+            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">INSPECTION</div>
+            <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
+              Every part measured before it ships.
+            </h2>
+            <p className="mb-6 max-w-[60ch] text-body">
+              A dedicated quality standard room backs every job, holding diameter accuracy within 2 microns and
+              surface finish below Ra 0.5.
+            </p>
+            <div className="mb-6 flex flex-wrap gap-3">
+              {featuredEquipment.map((eq) => (
+                <span key={eq} className="rounded-lg border border-accent/40 bg-accent-light px-3.5 py-2 text-sm font-semibold text-accent-hover">
+                  {eq}
+                </span>
+              ))}
             </div>
-          </div>
-          <div>
-            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">METROLOGY & INSPECTION</div>
             <div className="flex flex-wrap gap-2">
               {metrology.map((m) => <Tag key={m} label={m} />)}
             </div>
           </div>
-        </div>
-        {/* Quality board photos temporarily hidden — revisit once we have better shots.
-        <div className="grid gap-5 md:grid-cols-3">
-          <div className="overflow-hidden rounded-xl border border-line">
-            <Image src="/images/company/quality-1.jpg" alt="Shop floor safety board" width={400} height={300} className="h-full w-full object-cover" />
-          </div>
-          <div className="overflow-hidden rounded-xl border border-line">
-            <Image src="/images/company/quality-2.jpg" alt="4M change control board" width={400} height={300} className="h-full w-full object-cover" />
-          </div>
-          <div className="overflow-hidden rounded-xl border border-line">
-            <Image src="/images/company/quality-3.jpg" alt="Red bin quality tracking board" width={400} height={300} className="h-full w-full object-cover" />
+          <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line md:order-1">
+            <Image src="/images/capabilities/inspection.jpg" alt="Dial indicator measuring to 0.01mm" width={640} height={480} className="h-full w-full object-cover" />
           </div>
         </div>
-        */}
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MATERIALS WE MACHINE</div>
+        <div className="flex flex-wrap gap-2">
+          {materials.map((m) => <Tag key={m} label={m} />)}
+        </div>
       </section>
 
       <section className="border-t border-line bg-panel">
