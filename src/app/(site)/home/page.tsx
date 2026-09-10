@@ -43,7 +43,7 @@ export default function Home() {
             </h1>
             <p className="mb-7 max-w-[42ch] text-body">
               Precision machined components for domestic and international buyers, manufactured in Faridabad, India
-              and exported to the USA, Canada and Indonesia.
+              and exported to the USA, Canada, UK and Indonesia.
             </p>
             <div className="mb-7 flex flex-wrap gap-3">
               <MovingBorderButton href="/contact/" borderRadius="0.75rem">
