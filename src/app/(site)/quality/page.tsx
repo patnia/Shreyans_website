@@ -58,7 +58,7 @@ export default function QualityPage() {
       */}
 
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-24 pb-20 md:pt-28 md:grid-cols-2">
           <div>
             <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">HOW WE HOLD QUALITY</div>
             <h2 className="font-heading mb-6 text-3xl font-bold text-ink">Measured, not assumed.</h2>
