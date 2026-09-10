@@ -37,7 +37,7 @@ export default function CustomersPage() {
         />
       </PageHeader>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 pt-10 pb-16">
         <LogoMarquee logos={logos} speed={40} />
         <p className="mt-6 text-center text-xs text-muted">
           <MarketOnly show="domestic">Our established domestic OEM customer base, shown here as proof of scale and quality standard.</MarketOnly>
@@ -59,7 +59,7 @@ export default function CustomersPage() {
             <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">EXPORT MARKETS</div>
             <h2 className="font-heading mb-6 text-3xl font-bold text-ink">Serving customers across three continents.</h2>
             <div className="flex flex-wrap gap-2">
-              {["USA", "Canada", "Indonesia"].map((c) => (
+              {["USA", "Canada", "UK", "Indonesia"].map((c) => (
                 <span key={c} className="rounded-md border border-line bg-bg px-3 py-1.5 text-[13px] text-ink">{c}</span>
               ))}
             </div>
