@@ -7,14 +7,15 @@ const milestones = [
   { yr: "1989", text: "Shreyans Group founded by Mr. Shreyans Patni; precision turned parts and sub-assemblies for Indian OEMs, from Faridabad, Haryana." },
   { yr: "1990s–2000s", text: "Capacity expands across CNC turning, sliding-head automats and machining centres; metrology lab built out." },
   { yr: "Certified", text: "IATF 16949:2016 quality management and ZED certification; recognised as a Maruti Green Zone Supplier." },
-  { yr: "Export", text: "Shreyans AgriCon Products (SAP) launched for the export segment: a single-source S.P.A. model now serving the USA, Canada and Indonesia." },
+  { yr: "Export", text: "Shreyans AgriCon Products (SAP) launched for the export segment: a single-source S.P.A. model now serving the USA, Canada, UK and Indonesia." },
 ];
 
-const team = [
-  { name: "Mr. Shreyans Patni", role: "FOUNDER & PROMOTER", img: "/images/team/founder.jpg", desc: "Founded Shreyans Group in 1989; technical expert in precision manufacturing." },
-  { name: "Suparsh Patni", role: "DIRECTOR", img: "/images/team/placeholder.png", desc: "Leads operations and customer relationships." },
-  { name: "Amit Singla", role: "SALES & SOURCING", img: "/images/team/placeholder.png", desc: "Export enquiries and sourcing coordination." },
-];
+// Leadership & Team photos not on hand yet -- see the commented-out section below.
+// const team = [
+//   { name: "Mr. Shreyans Patni", role: "FOUNDER & PROMOTER", img: "/images/team/founder.jpg", desc: "Founded Shreyans Group in 1989; technical expert in precision manufacturing." },
+//   { name: "Suparsh Patni", role: "DIRECTOR", img: "/images/team/placeholder.png", desc: "Leads operations and customer relationships." },
+//   { name: "Amit Singla", role: "SALES & SOURCING", img: "/images/team/placeholder.png", desc: "Export enquiries and sourcing coordination." },
+// ];
 
 export default function AboutPage() {
   return (
@@ -30,7 +31,7 @@ export default function AboutPage() {
       </PageHeader>
 
       <section className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mx-auto max-w-6xl px-6 pt-10 pb-16">
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MILESTONES</div>
           <h2 className="font-heading mb-10 text-3xl font-bold text-ink">How we grew.</h2>
           <div className="relative">
@@ -48,7 +49,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl items-end gap-12 px-6 pt-10 pb-10 md:grid-cols-2">
         <div>
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">OUR STORY</div>
           <h2 className="font-heading mb-4 max-w-[24ch] text-3xl font-bold text-ink">
@@ -66,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl items-end gap-12 px-6 pt-10 pb-10 md:grid-cols-2">
         <div className="overflow-hidden rounded-2xl border border-line md:order-first order-last">
           <Image src="/images/team/founder.jpg" alt="Mr. Shreyans Patni" width={640} height={480} className="h-full w-full object-cover" />
         </div>
@@ -77,12 +78,14 @@ export default function AboutPage() {
             A technical expert in the manufacture of precision components. Before founding Shreyans Group in 1989, he
             spent 22 years at Jayna Times, among India&apos;s first makers of wrist watches and clocks, and at
             Birla VXL Ltd., manufacturing sophisticated time and mechanical equipment for defence. That
-            precision-instrument background still defines how SAC works.
+            precision-instrument background still defines how the shop runs today.
           </p>
           <p className="mt-3 text-sm text-muted">Pictured receiving recognition from the Maruti Centre for Excellence (MACE).</p>
         </div>
       </section>
 
+      {/* Leadership & Team photos not on hand yet -- Suparsh and Amit are still on
+      the placeholder image, so the section is hidden until we have real photos.
       <section className="border-y border-line bg-panel">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">LEADERSHIP & TEAM</div>
@@ -103,8 +106,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      */}
 
-      <section className="mx-auto max-w-2xl px-6 py-16 text-center">
+      <section className="mx-auto max-w-2xl px-6 pt-10 pb-16 text-center">
         <h2 className="font-heading mb-3 text-2xl font-bold text-ink">Work with a partner that&apos;s been precise since 1989.</h2>
         <p className="mb-7 text-body">Tell us about your part and volumes.</p>
         <MovingBorderButton href="/contact/" borderRadius="0.75rem">
