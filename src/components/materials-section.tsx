@@ -47,7 +47,7 @@ const families: Family[] = [
 
 export function MaterialsSection() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
+    <section id="materials" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-16">
       <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MATERIALS WE MACHINE</div>
       <h2 className="font-heading mb-10 max-w-[30ch] text-3xl font-bold text-ink">
         From free-cutting brass to nickel alloys and PEEK.

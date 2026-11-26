@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { MarketText } from "@/components/market-text";
@@ -59,6 +60,11 @@ export default function ProductsPage() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="border-t border-line pt-8">
+            <Link href="/capabilities/#materials" className="text-sm font-bold text-accent hover:text-accent-hover">
+              See the materials we machine →
+            </Link>
           </div>
         </div>
       </section>
