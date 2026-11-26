@@ -50,10 +50,6 @@ export default function ContactPage() {
               <dd className="mt-1 text-ink">
                 +91 98104 90896 · <span className="text-muted">suparsh@shreyansagricon.com</span>
               </dd>
-              <dt className="mt-4 font-mono text-[11px] tracking-[0.13em] text-muted">AMIT SINGLA</dt>
-              <dd className="mt-1 text-ink">
-                +91 99990 20620 · <span className="text-muted">amit@shreyansagricon.com</span>
-              </dd>
             </dl>
             <iframe
               className="mb-6 h-[300px] w-full rounded-xl border border-line"

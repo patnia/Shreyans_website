@@ -14,7 +14,6 @@ const milestones = [
 // const team = [
 //   { name: "Mr. Shreyans Patni", role: "FOUNDER & PROMOTER", img: "/images/team/founder.jpg", desc: "Founded Shreyans Group in 1989; technical expert in precision manufacturing." },
 //   { name: "Suparsh Patni", role: "DIRECTOR", img: "/images/team/placeholder.png", desc: "Leads operations and customer relationships." },
-//   { name: "Amit Singla", role: "SALES & SOURCING", img: "/images/team/placeholder.png", desc: "Export enquiries and sourcing coordination." },
 // ];
 
 export default function AboutPage() {
@@ -84,7 +83,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership & Team photos not on hand yet -- Suparsh and Amit are still on
+      {/* Leadership & Team photos not on hand yet -- Suparsh is still on
       the placeholder image, so the section is hidden until we have real photos.
       <section className="border-y border-line bg-panel">
         <div className="mx-auto max-w-6xl px-6 py-20">
