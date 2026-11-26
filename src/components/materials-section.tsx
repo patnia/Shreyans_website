@@ -60,7 +60,7 @@ export function MaterialsSection() {
               {family.materials.map((m) => (
                 <li key={m.name} className="flex items-center gap-4 rounded-xl border border-line bg-panel p-3">
                   <span
-                    className="h-14 w-14 flex-none rounded-full shadow-inner ring-1 ring-white/15"
+                    className="h-14 w-14 flex-none rounded-full shadow-inner ring-1 ring-black/10"
                     style={{ background: m.swatch }}
                     aria-hidden="true"
                   />

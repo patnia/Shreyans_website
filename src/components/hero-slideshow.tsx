@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
-import { Embers } from "@/components/ui/embers";
 import { PartModel } from "@/components/ui/part-model";
 import { FamilyModels } from "@/components/family-models";
 import { ColourNote } from "@/components/ui/colour-note";
@@ -55,16 +54,14 @@ export function HeroSlideshow() {
   return (
     <>
       <section
-        className="relative isolate overflow-hidden bg-dark text-ink"
+        className="theme-dark relative isolate overflow-hidden bg-bg"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 70% 80% at 74% 46%, color-mix(in srgb, var(--color-accent) 16%, #14100e) 0%, var(--color-dark) 72%)",
+            "radial-gradient(ellipse 70% 80% at 72% 46%, #263647 0%, #0e151d 72%)",
         }}
         aria-roledescription="carousel"
         aria-label="Featured specialised parts"
       >
-        <Embers count={14} />
-
         <div className={`absolute inset-x-0 top-0 h-[54%] md:inset-y-0 md:h-full ${["installation-lever", "rod-end-bearing"].includes(slide.id) ? "md:left-[34%]" : "md:left-[24%]"}`}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -105,13 +102,13 @@ export function HeroSlideshow() {
           aria-hidden="true"
         />
 
-        <div className="pointer-events-none relative mx-auto h-[calc(100svh-92px)] min-h-[620px] max-h-[820px] max-w-6xl">
+        <div className="pointer-events-none relative mx-auto h-[calc(100svh-80px)] min-h-[620px] max-h-[820px] max-w-6xl">
           <ColourNote
             highlight={slide.highlight}
             className="absolute bottom-[68px] left-6 right-6 z-10 md:bottom-[64px] md:left-auto md:justify-end"
           />
 
-          <div className="pointer-events-auto relative z-10 flex h-full w-fit flex-col justify-end px-6 pb-24 md:max-w-[48%] md:pb-20">
+          <div className="pointer-events-auto relative z-10 flex h-full w-fit flex-col justify-end px-6 pb-32 md:max-w-[48%] md:pb-20">
             <div className="mb-auto hidden pt-8 font-mono text-[11px] tracking-[0.16em] text-muted md:block">
               PRECISION MACHINED COMPONENTS · SINCE 1989
             </div>
@@ -129,7 +126,7 @@ export function HeroSlideshow() {
                 <div className="mb-3 font-mono text-[11px] tracking-[0.16em] text-accent">
                   {slide.category.toUpperCase()}
                 </div>
-                <h2 className="font-heading text-3xl font-bold leading-[1.05] text-ink sm:text-4xl md:text-5xl">
+                <h2 className="font-heading text-3xl font-bold leading-[1.05] text-ink sm:text-4xl md:text-[3.35rem]">
                   {slide.headline}
                 </h2>
                 <p className="mt-3 max-w-[44ch] text-sm text-body sm:text-base">{slide.line}</p>

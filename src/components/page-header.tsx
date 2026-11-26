@@ -10,12 +10,16 @@ export function PageHeader({
   decoration?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-dark to-dark-2 text-ink">
+    <section className="relative overflow-hidden border-b border-line bg-panel">
       {decoration}
-      <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-10 md:pt-20 md:pb-12">
-        <div className="mb-3 font-mono text-xs tracking-[0.16em] text-accent">{eyebrow}</div>
-        <h1 className="font-heading max-w-[26ch] text-3xl font-bold text-ink md:text-4xl">{title}</h1>
-        {children && <p className="mt-4 max-w-[62ch] text-body">{children}</p>}
+      <div className="relative mx-auto grid max-w-6xl gap-6 px-6 pt-14 pb-10 md:grid-cols-[1.15fr_0.85fr] md:items-end md:gap-14 md:pt-20 md:pb-12">
+        <div>
+          <div className="mb-4 font-mono text-xs tracking-[0.16em] text-accent">{eyebrow}</div>
+          <h1 className="font-heading max-w-[18ch] text-4xl font-extrabold leading-[1.08] text-ink md:text-5xl">
+            {title}
+          </h1>
+        </div>
+        {children && <p className="max-w-[52ch] text-base text-body md:pb-1.5">{children}</p>}
       </div>
     </section>
   );

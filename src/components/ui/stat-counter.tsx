@@ -32,12 +32,12 @@ export function StatCounter({
 
   return (
     <div ref={ref}>
-      <div className="font-mono text-3xl font-semibold tabular-nums text-accent-hover">
+      <div className="font-heading text-4xl font-extrabold tabular-nums text-ink md:text-5xl">
         {prefix}
         {display.toFixed(decimals)}
         {suffix}
       </div>
-      <div className="mt-1 font-mono text-[11.5px] tracking-[0.1em] text-muted">{label}</div>
+      <div className="mt-2 font-mono text-[11.5px] tracking-[0.1em] text-muted">{label}</div>
     </div>
   );
 }

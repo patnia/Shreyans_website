@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Download } from "lucide-react";
 
 const NAV = [
-  { href: "/home/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/capabilities/", label: "Capabilities" },
   { href: "/products/", label: "Products" },
@@ -22,21 +22,22 @@ export function Header() {
   const active = `${pathname.replace(/\/$/, "")}/`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur-md">
-      <div className="mx-auto flex h-[92px] max-w-6xl items-center justify-between gap-4 px-6">
-        <Link href="/home/" className="flex items-center">
-          <Image src="/images/logo-shreyans-horizontal.png" alt="Shreyans" width={220} height={58} className="h-14 w-auto rounded-md bg-white p-1.5" priority />
+    <header className="theme-dark sticky top-0 z-50 border-b border-line bg-bg">
+      <div className="mx-auto flex h-[80px] max-w-6xl items-center justify-between gap-6 px-6">
+        <Link href="/home/" className="flex flex-none items-center" aria-label="Shreyans home">
+          <Image src="/images/logo-shreyans-dark.png" alt="Shreyans" width={168} height={40} className="h-9 w-auto" priority />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-7">
           {NAV.map((n) => (
             <Link
               key={n.href}
               href={n.href}
+              aria-current={active === n.href ? "page" : undefined}
               className={`border-b-2 py-1.5 text-sm font-medium transition-colors ${
                 active === n.href
-                  ? "border-accent text-accent-hover"
-                  : "border-transparent text-body hover:border-accent hover:text-ink"
+                  ? "border-accent text-ink"
+                  : "border-transparent text-body hover:text-ink"
               }`}
             >
               {n.label}
@@ -44,25 +45,26 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex flex-none items-center gap-4">
-          <Link
-            href="/contact/"
-            className="inline-block flex-none whitespace-nowrap rounded-lg bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink transition-colors hover:bg-accent-hover"
-          >
-            Request a quote
-          </Link>
-
+        <div className="hidden lg:flex flex-none items-center gap-5">
           <a
             href="/documents/Shreyans-Brochure.pdf"
             download
-            className="inline-block flex-none whitespace-nowrap rounded-lg border border-accent px-5 py-2.5 text-sm font-bold text-accent-hover transition-colors hover:bg-accent-light"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted transition-colors hover:text-ink"
           >
+            <Download size={15} aria-hidden="true" />
             Brochure
           </a>
+          <Link
+            href="/contact/"
+            className="inline-block flex-none whitespace-nowrap rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-accent-ink transition-colors hover:bg-accent-hover"
+          >
+            Request a quote
+          </Link>
         </div>
 
         <button
           aria-label="Menu"
+          aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
           className="lg:hidden flex h-9 w-10 items-center justify-center rounded-lg border border-line bg-panel"
         >
@@ -84,6 +86,16 @@ export function Header() {
               {n.label}
             </Link>
           ))}
+          <Link
+            href="/contact/"
+            onClick={() => setOpen(false)}
+            className="mt-4 block rounded-full bg-accent px-5 py-3 text-center text-sm font-bold text-accent-ink"
+          >
+            Request a quote
+          </Link>
+          <a href="/documents/Shreyans-Brochure.pdf" download className="mt-3 block text-center text-sm text-muted">
+            Download brochure
+          </a>
         </nav>
       )}
     </header>

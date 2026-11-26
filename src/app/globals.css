@@ -1,24 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Foundry & Forge — Shreyans Auto & Components (domestic), site default.
-     Carbon black ground with a molten ember-orange accent. */
-  --color-bg: #14100e;
-  --color-panel: #1d1613;
-  --color-ink: #f4ece4;
-  --color-body: #cdbfae;
-  --color-muted: #b8a99b;
-  --color-line: rgba(255, 138, 80, 0.16);
+  /* Light pages. Navy and green are taken from the Shreyans logo. */
+  --color-bg: #f5f7f8;
+  --color-panel: #ffffff;
+  --color-ink: #141e28;
+  --color-body: #3d4a56;
+  --color-muted: #64717d;
+  --color-line: #dce2e7;
 
-  --color-accent: #ff8a50;
-  --color-accent-hover: #e8763c;
-  --color-accent-light: rgba(255, 138, 80, 0.1);
+  --color-accent: #2f6f25;
+  --color-accent-hover: #25591d;
+  --color-accent-light: #e8f1e5;
   /* Text color to use ON TOP of an accent-colored background. */
-  --color-accent-ink: #1a0e07;
+  --color-accent-ink: #ffffff;
 
-  --color-dark: #0d0a09;
-  --color-dark-2: #1d1613;
-  --color-dark-line: rgba(255, 138, 80, 0.16);
+  --color-dark: #0e151d;
+  --color-dark-2: #16212c;
+  --color-dark-line: rgba(255, 255, 255, 0.12);
 
   --color-dom: #1e5cc8;
   --color-dom-bg: #e7edfb;
@@ -33,29 +32,24 @@
   --color-gateway: #f2efe7;
   --color-gateway-2: #f2efe7;
 
-  --font-heading: var(--font-zilla-slab);
+  --font-heading: var(--font-manrope);
 }
 
-/* Precision & Prestige — Shreyans Agricon Products (export/international).
-   Deep navy ground with a muted brass/gold accent. */
-[data-market="international"] {
-  --color-bg: #0f1729;
-  --color-panel: #172238;
-  --color-ink: #f5f3ec;
-  --color-body: #c3cbda;
-  --color-muted: #96a3b8;
-  --color-line: rgba(201, 162, 39, 0.18);
+/* Dark surfaces: header, Home hero, part pop-up, closing band and footer. */
+.theme-dark {
+  --color-bg: #0e151d;
+  --color-panel: #16212c;
+  --color-ink: #f2f6f9;
+  --color-body: #bfcad4;
+  --color-muted: #8d9ba8;
+  --color-line: rgba(255, 255, 255, 0.13);
 
-  --color-accent: #c9a227;
-  --color-accent-hover: #b58f22;
-  --color-accent-light: rgba(201, 162, 39, 0.12);
-  --color-accent-ink: #0f1729;
+  --color-accent: #6cbc55;
+  --color-accent-hover: #86d070;
+  --color-accent-light: rgba(108, 188, 85, 0.14);
+  --color-accent-ink: #08130a;
 
-  --color-dark: #0b1120;
-  --color-dark-2: #172238;
-  --color-dark-line: rgba(201, 162, 39, 0.18);
-
-  --font-heading: var(--font-bricolage);
+  color: var(--color-body);
 }
 
 @theme inline {
@@ -81,12 +75,21 @@
   --color-gateway: var(--color-gateway);
   --color-gateway-2: var(--color-gateway-2);
   --font-heading: var(--font-heading);
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
   --font-mono: var(--font-plex-mono);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-body);
+}
+
+h1.font-heading,
+h2.font-heading,
+h3.font-heading,
+p.font-heading {
+  letter-spacing: -0.022em;
+  text-wrap: balance;
 }
 
 @keyframes marquee {

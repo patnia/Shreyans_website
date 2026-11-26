@@ -5,15 +5,15 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-body">
+    <footer className="theme-dark border-t border-line bg-bg">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr_1.1fr]">
         <div>
           <Image
-            src="/images/logo-shreyans-horizontal.png"
+            src="/images/logo-shreyans-dark.png"
             alt="Shreyans"
-            width={140}
-            height={36}
-            className="mb-4 h-9 w-auto rounded-md bg-white p-1"
+            width={168}
+            height={40}
+            className="mb-5 h-9 w-auto"
           />
           <p className="text-sm leading-relaxed">
             House of precision machined components &amp; sub-assemblies. Supplying India&apos;s OEMs since 1989, exporting worldwide.

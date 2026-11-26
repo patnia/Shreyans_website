@@ -74,7 +74,7 @@ export function IntroAnimation() {
       {show && (
         <motion.div
           key="intro"
-          className="fixed inset-0 z-[80] grid cursor-pointer place-items-center overflow-hidden bg-dark"
+          className="theme-dark fixed inset-0 z-[80] grid cursor-pointer place-items-center overflow-hidden bg-bg"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
@@ -112,17 +112,17 @@ export function IntroAnimation() {
           </motion.div>
 
           <motion.div
-            className="relative rounded-xl bg-white p-3 shadow-2xl"
+            className="relative px-6"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2.0, duration: 0.7, ease: "easeOut" }}
           >
             <Image
-              src="/images/logo-shreyans-horizontal.png"
+              src="/images/logo-shreyans-dark.png"
               alt="Shreyans"
               width={440}
               height={116}
-              className="h-20 w-auto sm:h-24"
+              className="h-14 w-auto sm:h-20"
               priority
             />
           </motion.div>

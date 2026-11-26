@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { Zilla_Slab, Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
+import { Manrope, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { MarketProvider } from "@/components/market-provider";
 
-// Foundry & Forge display face — Shreyans Auto & Components (domestic)
-const zillaSlab = Zilla_Slab({
-  variable: "--font-zilla-slab",
-  weight: ["600", "700"],
+const manrope = Manrope({
+  variable: "--font-manrope",
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
 });
 
-// Precision & Prestige display face — Shreyans Agricon Products (export)
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
-  weight: ["600", "700", "800"],
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -35,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${zillaSlab.variable} ${bricolage.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${manrope.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}>
       <body className="min-h-full font-sans text-body">
         <MarketProvider>{children}</MarketProvider>
       </body>
