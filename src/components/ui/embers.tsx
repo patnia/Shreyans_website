@@ -5,11 +5,12 @@ function pseudo(i: number, salt: number) {
 }
 
 const COUNT = 30;
+const r2 = (n: number) => Math.round(n * 100) / 100;
 const EMBERS = Array.from({ length: COUNT }, (_, i) => ({
-  left: Math.min(98, (i / COUNT) * 100 + pseudo(i, 1) * 3),
-  delay: pseudo(i, 2) * 2.2,
-  duration: 4.7 + pseudo(i, 3) * 0.6,
-  size: 3 + pseudo(i, 4) * 3,
+  left: r2(Math.min(98, (i / COUNT) * 100 + pseudo(i, 1) * 3)),
+  delay: r2(pseudo(i, 2) * 2.2),
+  duration: r2(4.7 + pseudo(i, 3) * 0.6),
+  size: r2(3 + pseudo(i, 4) * 3),
 }));
 
 export function Embers({ count = EMBERS.length }: { count?: number }) {
