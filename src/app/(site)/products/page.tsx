@@ -2,8 +2,16 @@ import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { MarketText } from "@/components/market-text";
+import { SpecializationGrid } from "@/components/specialization-grid";
+import { Car, HardHat, RadioTower, Tractor, Wrench } from "lucide-react";
 
-const sectors = ["Automotive", "Agriculture", "Construction", "Tools & Accessories", "Telecom & Switchgear"];
+const sectors = [
+  { name: "Automotive", Icon: Car },
+  { name: "Agriculture", Icon: Tractor },
+  { name: "Construction", Icon: HardHat },
+  { name: "Tools & Accessories", Icon: Wrench },
+  { name: "Telecom & Switchgear", Icon: RadioTower },
+];
 
 const products = [
   { img: "shafts.jpg", name: "Dowells, Pins & Shafts", desc: "Ground, polished, passivated, electroplated and super-finished.", meta: "Stainless steel, brass · Ø within 2µm · below Ra 0.5" },
@@ -16,6 +24,9 @@ const products = [
   { img: "telecom.jpg", name: "Telecom & Switchgear", desc: "Grub screws, inserts and terminals for surge arrestors and DC blocks.", meta: "Brass, beryllium copper, nickel silver" },
 ];
 
+// Rebuilt from the original product PDFs on a common white 4:3 frame.
+const thumbs = new Set(["shafts.jpg", "automotive.jpg", "farm.jpg", "profile.jpg", "castings.jpg"]);
+
 export default function ProductsPage() {
   return (
     <>
@@ -26,28 +37,42 @@ export default function ProductsPage() {
         />
       </PageHeader>
 
-      <section className="mx-auto max-w-6xl px-6 pt-10 pb-20">
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">SECTORS WE SERVE</div>
-        <div className="mb-10 flex flex-wrap gap-2">
-          {sectors.map((s) => (
-            <span key={s} className="rounded-md border border-line bg-panel px-3 py-1.5 text-[13px] text-ink">{s}</span>
-          ))}
-        </div>
+      <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <h2 className="font-heading text-3xl font-bold text-ink">Specialisations</h2>
+        <p className="mb-8 mt-2 max-w-[60ch] text-body">Open any part to turn it in 3D and read its specification.</p>
+        <SpecializationGrid />
+      </section>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
-            <div key={p.name} className="overflow-hidden rounded-2xl border border-line bg-panel transition-transform hover:-translate-y-1">
-              <div className="aspect-[4/3] overflow-hidden bg-dark">
-                <Image src={`/images/products/${p.img}`} alt={p.name} width={400} height={300} className="h-full w-full object-cover" />
-              </div>
-              <div className="p-5">
-                <h3 className="mb-1.5 text-[17px] font-bold text-ink">{p.name}</h3>
-                <p className="mb-3 text-sm text-body">{p.desc}</p>
-                <div className="border-t border-line pt-2.5 text-xs text-muted">{p.meta}</div>
-              </div>
-            </div>
-          ))}
+      <section id="families" className="scroll-mt-20 border-y border-line bg-panel">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <h2 className="font-heading mb-8 text-3xl font-bold text-ink">Other parts</h2>
+          <div className="grid gap-x-12 md:grid-cols-2">
+            {products.map((p) => (
+              <article key={p.name} className="grid items-start gap-4 border-t border-line py-6 sm:grid-cols-[220px_1fr] sm:gap-5">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-line bg-white">
+                  <Image src={thumbs.has(p.img) ? `/images/products/thumbs/${p.img}` : `/images/products/${p.img}`} alt={p.name} width={800} height={600} className="h-full w-full object-contain" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-heading text-lg font-bold text-ink">{p.name}</h3>
+                  <p className="mt-1 text-sm text-body">{p.desc}</p>
+                  <p className="mt-2 text-xs text-muted">{p.meta}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h2 className="font-heading mb-8 text-3xl font-bold text-ink">Sectors we serve</h2>
+        <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
+          {sectors.map(({ name, Icon }) => (
+            <li key={name} className="flex flex-col items-center gap-3 bg-panel px-3 py-8 text-center max-sm:last:col-span-2">
+              <Icon size={30} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
+              <span className="text-sm font-semibold text-ink">{name}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="border-t border-line bg-panel">

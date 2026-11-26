@@ -8,7 +8,7 @@ import type { Part } from "@/data/specializations";
 // point, the other two on the upper arms. `size` keeps their real proportions.
 const SLOTS = [
   { box: "left-[26%] top-[40%] h-[52%] w-[48%]", size: 0.68, label: "5RO" },
-  { box: "left-[5%] top-[9%] h-[42%] w-[40%]", size: 0.63, label: "200E" },
+  { box: "left-[5%] top-[9%] h-[42%] w-[40%]", size: 0.64, label: "O2", orientation: "0deg 90deg 0deg" },
   { box: "left-[56%] top-[9%] h-[42%] w-[40%]", size: 0.61, label: "210E", orientation: "0deg 90deg 0deg" },
 ];
 

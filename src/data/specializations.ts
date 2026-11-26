@@ -1,3 +1,5 @@
+export type Highlight = { color: string; text: string };
+
 export type Part = {
   slug: string;
   name: string;
@@ -5,6 +7,8 @@ export type Part = {
   model: string;
   description: string[];
   specs: { label: string; value: string }[];
+  /** Overrides the group highlight where parts in a family differ. */
+  highlight?: Highlight;
 };
 
 export type Specialization = {
@@ -27,15 +31,14 @@ export type Specialization = {
    * on a compressed curve, so small parts still read and large ones look larger.
    */
   heroSize: number;
+  /** Still renders for the Products page tile, one per part shown. */
+  stills: string[];
   /** Show every part in the family together on the Home hero. */
   showFamily?: boolean;
   /** What the coloured highlight on the 3D model marks. */
   highlight: { color: string; text: string };
   parts: Part[];
 };
-
-const SHOWCASE = "https://shreyansagricon.netlify.app";
-export const showcaseUrl = (slug: string) => `${SHOWCASE}/${slug}`;
 
 const sensorBossCopy = (variant: string) => [
   `The ${variant} oxygen sensor boss is machined from SS430 stainless steel, engineered as a weld-in mounting point that positions and seals an exhaust-line oxygen sensor. The ferritic grade offers strong heat resistance and long-term corrosion stability in the exhaust stream.`,
@@ -45,6 +48,7 @@ const sensorBossCopy = (variant: string) => [
 export const specializations: Specialization[] = [
   {
     id: "sensor-boss",
+    stills: ["/images/parts/boss_sensor_o2.webp", "/images/parts/18158-5r0-3000.webp", "/images/parts/18158l4aaq210.webp"],
     showFamily: true,
     heroSize: 0.46,
     highlight: { color: "#d4a73c", text: "Gold marks the M18 × 1.5 thread, not the part colour." },
@@ -69,16 +73,19 @@ export const specializations: Specialization[] = [
         ],
       },
       {
-        slug: "18158l4aaq200",
-        name: "Oxygen Sensor Boss, 200E",
-        number: "18158L4AAQ200",
-        model: "/models/18158l4aaq200.glb",
-        description: sensorBossCopy("200E"),
+        slug: "boss_sensor_o2",
+        name: "Boss Sensor O2",
+        number: "Boss_Sensor_O2",
+        model: "/models/boss_sensor_o2.glb",
+        description: [
+          "The Boss Sensor O2 is an oxygen sensor boss made from SUS430 ferritic stainless steel, formed with a pre-curved saddle shell that matches the exhaust pipe, so it seats flush before welding. A short neck carries the sensor seat plate and the internally threaded (M18 × 1.5) sensor bore.",
+          "It is produced from SUS430 and finished on a CNC machining center, holding the threaded bore and seat plate to the customer drawing, with all sizes held after plating.",
+        ],
         specs: [
-          { label: "Material", value: "SS430" },
-          { label: "Process", value: "Investment cast + VMC" },
-          { label: "Mount", value: "Weld-in boss" },
-          { label: "Finish", value: "As-machined" },
+          { label: "Material", value: "SUS430" },
+          { label: "Process", value: "Forming + CNC" },
+          { label: "Mount", value: "Pre-curved saddle" },
+          { label: "Bore", value: "M18 × 1.5" },
         ],
       },
       {
@@ -98,6 +105,7 @@ export const specializations: Specialization[] = [
   },
   {
     id: "spool",
+    stills: ["/images/parts/imsp0181-110.webp"],
     heroSize: 0.6,
     highlight: { color: "#00bfd0", text: "Blue marks the cross-drilled holes, not the part colour." },
     category: "Precision Aluminium Component",
@@ -124,6 +132,7 @@ export const specializations: Specialization[] = [
   },
   {
     id: "pintle",
+    stills: ["/images/parts/imsp0233-015.webp"],
     heroSize: 0.42,
     highlight: { color: "#a878e0", text: "Purple marks the barbed end, not the part colour." },
     category: "Pintle",
@@ -150,6 +159,7 @@ export const specializations: Specialization[] = [
   },
   {
     id: "installation-lever",
+    stills: ["/images/parts/installation_lever.webp"],
     heroSize: 1.12,
     highlight: { color: "#d4a73c", text: "Colours tell the pieces apart. The red bar coating is real." },
     category: "Adjustable Link Assembly",
@@ -177,6 +187,7 @@ export const specializations: Specialization[] = [
   },
   {
     id: "chain-locking-pin",
+    stills: ["/images/parts/chain_locking_pin.webp"],
     heroSize: 0.76,
     highlight: { color: "#00bfd0", text: "Blue marks the tab pin, not the part colour." },
     category: "Locking Pin",
@@ -202,10 +213,11 @@ export const specializations: Specialization[] = [
   },
   {
     id: "rod-end-bearing",
+    stills: ["/images/parts/rod_end_single_body_full_sphere_both_sides_m8.webp"],
     heroSize: 0.52,
     highlight: { color: "#d9a35c", text: "Gold marks the spherical ball, not the part colour." },
     category: "Bearing Assembly",
-    headline: "Stainless rod end bearings, machined to your 3D model.",
+    headline: "Stainless steel rod end bearings.",
     line: "Single-piece body, full spherical form and a threaded connection.",
     explode: { model: "/models/rod_end_single_body_full_sphere_both_sides_m8_explode.glb", angle: [-28, -54], tilt: [72, 74], zoom: 0.45 },
     parts: [
@@ -216,7 +228,7 @@ export const specializations: Specialization[] = [
         model: "/models/rod_end_single_body_full_sphere_both_sides_m8.glb",
         description: [
           "A single-body stainless steel bearing assembly machined as one piece, with a full spherical form on both sides and a threaded connection.",
-          "Produced by CNC machining to the customer's 3D model, for a clean, consistent geometry from part to part.",
+          "Produced by CNC machining, for a clean, consistent geometry from part to part.",
         ],
         specs: [
           { label: "Body", value: "Single piece" },
@@ -228,6 +240,7 @@ export const specializations: Specialization[] = [
   },
   {
     id: "groove-pin",
+    stills: ["/images/parts/grooved_stepped_pin_124p70.webp"],
     heroSize: 0.92,
     highlight: { color: "#5fcf4e", text: "Green marks the four grooves, not the part colour." },
     category: "Pin",
@@ -251,5 +264,134 @@ export const specializations: Specialization[] = [
         ],
       },
     ],
+  },
+];
+
+// ---------- Products page ----------
+// The Home slideshow uses `specializations` above. The Products page groups
+// parts into families here and can include parts the Home page leaves out.
+
+export type ProductGroup = {
+  id: string;
+  title: string;
+  category: string;
+  note?: string;
+  /** Wide tile showing several parts together. */
+  family: boolean;
+  /** Label the pop-up's part buttons by name rather than part number. */
+  tabsByName?: boolean;
+  stills: string[];
+  highlight: Highlight;
+  parts: Part[];
+};
+
+const slide = (id: string) => {
+  const found = specializations.find((s) => s.id === id);
+  if (!found) throw new Error(`No specialisation "${id}"`);
+  return found;
+};
+
+// A single-part slide's part, carrying that slide's highlight into a family.
+const fromSlide = (id: string): Part => ({ ...slide(id).parts[0], highlight: slide(id).highlight });
+
+const still = (slug: string) => `/images/parts/${slug}.webp`;
+
+const sensorBoss200E: Part = {
+  slug: "18158l4aaq200",
+  name: "Oxygen Sensor Boss, 200E",
+  number: "18158L4AAQ200",
+  model: "/models/18158l4aaq200.glb",
+  description: sensorBossCopy("200E"),
+  specs: [
+    { label: "Material", value: "SS430" },
+    { label: "Process", value: "Investment cast + VMC" },
+    { label: "Mount", value: "Weld-in boss" },
+    { label: "Finish", value: "As-machined" },
+  ],
+};
+
+const m1Pin: Part = {
+  slug: "sac-pwc-001",
+  name: "Pin with M1 Thread Collar",
+  number: "SAC-PWC-001",
+  model: "/models/sac-pwc-001.glb",
+  highlight: { color: "#d4a73c", text: "Gold marks the M1 thread, not the part colour." },
+  description: [
+    "The Pin with M1 Thread Collar is a small precision pin with a 5 mm collar at one end and a 1 mm stem with an M1 thread, 2 mm long, at the free end, produced to Shreyans drawing SAC-PWC-001 in stainless steel.",
+    "It is CNC machined, with sharp edges broken and burrs removed, and tolerances and surface finish held to the customer's requirement.",
+  ],
+  specs: [
+    { label: "Material", value: "Stainless steel" },
+    { label: "Collar", value: "5 mm" },
+    { label: "Thread", value: "M1, 2 mm long" },
+    { label: "Process", value: "CNC machining" },
+  ],
+};
+
+const egrOut: Part = {
+  slug: "18713-62f-t000-h1",
+  name: "Boss, EGR Out",
+  number: "18713-62F-T000-H1",
+  model: "/models/18713-62f-t000-h1.glb",
+  description: [
+    "The Boss, EGR Out is a mounting bracket that locates and secures the EGR (exhaust gas recirculation) outlet to the catalytic converter assembly. It is engineered to the customer drawing to mate precisely with the converter's component parts, with no cavities, burrs or surface cracks permitted.",
+    "Produced from SUS430L ferritic stainless steel, available as wrought or investment-cast stock, and finished on a CNC machining center to the drawing's angular and positional tolerances, holding the sealing faces and mounting bores.",
+  ],
+  specs: [
+    { label: "Material", value: "SUS430L" },
+    { label: "Process", value: "Investment casting + CNC" },
+    { label: "Application", value: "EGR / converter" },
+    { label: "Mass", value: "0.185 kg" },
+  ],
+};
+
+export const productGroups: ProductGroup[] = [
+  {
+    id: "sensor-boss-family",
+    title: "Sensor boss family",
+    category: "Sensor Boss",
+    family: true,
+    highlight: slide("sensor-boss").highlight,
+    stills: ["boss_sensor_o2", "18158-5r0-3000", "18158l4aaq210", "18158l4aaq200"].map(still),
+    parts: [...slide("sensor-boss").parts, sensorBoss200E],
+  },
+  {
+    id: "assembly-family",
+    title: "Assemblies",
+    category: "Assembly",
+    family: true,
+    tabsByName: true,
+    highlight: slide("installation-lever").highlight,
+    stills: ["chain_locking_pin", "installation_lever", "rod_end_single_body_full_sphere_both_sides_m8"].map(still),
+    parts: ["chain-locking-pin", "installation-lever", "rod-end-bearing"].map(fromSlide),
+  },
+  {
+    id: "pin-family",
+    title: "Pins",
+    category: "Pin",
+    family: true,
+    tabsByName: true,
+    highlight: slide("pintle").highlight,
+    stills: ["imsp0233-015", "grooved_stepped_pin_124p70", "sac-pwc-001"].map(still),
+    parts: [fromSlide("pintle"), fromSlide("groove-pin"), m1Pin],
+  },
+  {
+    id: "egr-out",
+    title: "Boss, EGR Out",
+    category: "Investment Casting + Machining",
+    note: "Investment cast, then CNC machined.",
+    family: false,
+    highlight: { color: "#a2c7e3", text: "The blue section is part of the casting itself, not a highlight or its real colour." },
+    stills: [still("18713-62f-t000-h1")],
+    parts: [egrOut],
+  },
+  {
+    id: "spool-single",
+    title: "Spool",
+    category: slide("spool").category,
+    family: false,
+    highlight: slide("spool").highlight,
+    stills: slide("spool").stills,
+    parts: slide("spool").parts,
   },
 ];

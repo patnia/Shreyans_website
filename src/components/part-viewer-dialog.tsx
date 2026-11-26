@@ -5,13 +5,13 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import { PartModel } from "@/components/ui/part-model";
 import { ColourNote } from "@/components/ui/colour-note";
-import { showcaseUrl, type Specialization } from "@/data/specializations";
+import type { Highlight, Part } from "@/data/specializations";
 
 export function PartViewerDialog({
   specialization,
   onClose,
 }: {
-  specialization: Specialization;
+  specialization: { category: string; highlight: Highlight; parts: Part[]; tabsByName?: boolean };
   onClose: () => void;
 }) {
   const [idx, setIdx] = useState(0);
@@ -36,7 +36,7 @@ export function PartViewerDialog({
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-black/75 p-3 backdrop-blur-sm sm:p-6"
+      className="theme-dark fixed inset-0 z-[70] flex items-center justify-center bg-black/75 p-3 backdrop-blur-sm sm:p-6"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -58,11 +58,11 @@ export function PartViewerDialog({
 
         <div
           className="relative min-h-[300px] md:min-h-[480px]"
-          style={{ background: "radial-gradient(circle at 50% 42%, #2e2721, #0d0a08 75%)" }}
+          style={{ background: "radial-gradient(circle at 50% 42%, #263647, #0b1118 75%)" }}
         >
           <PartModel key={part.slug} src={part.model} alt={part.name} interactive className="absolute inset-0" />
           <div className="pointer-events-none absolute inset-x-4 bottom-3 space-y-1.5">
-            <ColourNote highlight={specialization.highlight} />
+            <ColourNote highlight={part.highlight ?? specialization.highlight} />
             <span className="block font-mono text-[11px] tracking-[0.1em] text-white/45">
               DRAG TO ROTATE · SCROLL TO ZOOM
             </span>
@@ -89,7 +89,7 @@ export function PartViewerDialog({
                       : "border-line text-body hover:border-accent"
                   }`}
                 >
-                  {p.number}
+                  {specialization.tabsByName ? p.name : p.number}
                 </button>
               ))}
             </div>
@@ -117,14 +117,6 @@ export function PartViewerDialog({
             >
               Request a quote for this part
             </Link>
-            <a
-              href={showcaseUrl(part.slug)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-lg border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent"
-            >
-              Open full showcase ↗
-            </a>
           </div>
         </div>
       </div>
