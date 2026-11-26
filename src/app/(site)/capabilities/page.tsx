@@ -2,20 +2,59 @@ import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { MaterialsSection } from "@/components/materials-section";
 
-const machines = [
-  ["CNC turning · BFW", "chuck Ø200 mm · 2"],
-  ["CNC 5-axis sliding head, live tooling · Ace", "Ø20 mm · 2"],
-  ["CNC turning · Polygim", "chuck Ø50 mm · 2"],
-  ["CNC turning · Global", "chuck Ø200 mm · 2"],
-  ["CNC turning · Ace", "chuck Ø200 mm · 4"],
-  ["CNC turning · Jyoti", "chuck Ø200 mm · 4"],
-  ["Vertical machining centre · BFW / Ace", "700×550 mm · 6"],
-  ["Sliding-head automats · Peterman / Bechelor", "16"],
-  ["Traubs · Chera", "15"],
-  ["Milling & centreless grinding · Aceira / HMT", "4"],
-  ["Thread rolling, cutting, drilling · Herbert", "in-line"],
-  ["Citizen F10 sliding-head CNC", "fine turning"],
+const mainMachines = [
+  {
+    name: "CNC Turning Centers",
+    img: "/images/capabilities/machines/cnc-turning-center.jpg",
+    desc: "BFW, Global, Ace, Jyoti and Polygim lathes turning chuck diameters up to Ø200 mm, bar and chucked work.",
+  },
+  {
+    name: "CNC 5-Axis Sliding Head",
+    img: "/images/capabilities/machines/cnc-5-axis-sliding-head.jpg",
+    desc: "Ace 5-axis sliding-head automats with live tooling, turning bar stock to Ø20 mm for complex, multi-feature parts in one setup.",
+  },
+  {
+    name: "Vertical Machining Centres",
+    img: "/images/capabilities/machines/vmc.jpg",
+    desc: "BFW and Ace VMCs on a 700×550 mm table for milled and multi-axis work.",
+  },
+  {
+    name: "Sliding-Head Automats",
+    img: "/images/capabilities/machines/sliding-head-automats.jpg",
+    desc: "Peterman, Bechler and Citizen F10 sliding-head machines, cam and CNC-driven, built for small, complex parts at volume.",
+  },
+  {
+    name: "Traubs",
+    img: "/images/capabilities/machines/traubs.jpg",
+    desc: "Chera Traub automats — 15 machines dedicated to high-volume bar turning.",
+  },
+];
+
+const smallerMachines = [
+  { name: "Milling", img: "/images/capabilities/machines/milling.jpg" },
+  { name: "Centerless Grinding", img: "/images/capabilities/machines/centerless-grinding.jpg" },
+  { name: "Thread Rolling", img: "/images/capabilities/machines/thread-rolling.jpg" },
+  { name: "Cutting & Drilling", img: "/images/capabilities/machines/cutting-drilling.jpg" },
+];
+
+const mainInspection = [
+  {
+    name: "VMM",
+    img: "/images/capabilities/inspection/vmm.jpg",
+    desc: "Non-contact vision measuring for 2D profile and dimensional checks.",
+  },
+  {
+    name: "Contour Tracer",
+    img: "/images/capabilities/inspection/contour-tracer.jpg",
+    desc: "Surface profile and form measurement to micron accuracy.",
+  },
+  {
+    name: "Surface Roughness Tester",
+    img: "/images/capabilities/inspection/surface-roughness-tester.jpg",
+    desc: "Checks every job's finish against Ra 0.5.",
+  },
 ];
 
 const checklist = [
@@ -26,12 +65,24 @@ const checklist = [
   "In-process and final inspection before dispatch",
 ];
 
-const materials = ["Brass", "Stainless steel", "12L14", "Aluminium", "Copper", "Teflon", "PEEK", "Nickel silver", "Inconel", "Monel"];
-const featuredEquipment = ["VMM", "Contour tracer", "Surface roughness tester"];
 const metrology = ["Air gauges", "Hardness tester", "Profile projector", "Digital micrometer / vernier", "Surface plate & height gauge"];
 
 function Tag({ label }: { label: string }) {
   return <span className="rounded-md border border-line bg-panel px-3 py-1.5 text-[13px] text-ink">{label}</span>;
+}
+
+function MachineCard({ name, img, desc }: { name: string; img: string; desc: string }) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-line bg-panel">
+      <div className="aspect-[4/3] overflow-hidden bg-bg">
+        <Image src={img} alt={name} width={400} height={300} className="h-full w-full object-cover" />
+      </div>
+      <div className="p-5">
+        <div className="mb-1.5 font-semibold text-ink">{name}</div>
+        <p className="text-sm text-body">{desc}</p>
+      </div>
+    </div>
+  );
 }
 
 export default function CapabilitiesPage() {
@@ -50,12 +101,21 @@ export default function CapabilitiesPage() {
           <StatCounter value={50} suffix="+" label="MACHINES" />
           <StatCounter value={1989} label="SINCE" />
         </div>
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">CNC & TURNING</div>
-        <div className="grid gap-x-10 md:grid-cols-2">
-          {machines.map(([k, v]) => (
-            <div key={k} className="flex items-baseline justify-between gap-4 border-b border-line py-3">
-              <span className="text-[15px] font-medium text-ink">{k}</span>
-              <span className="whitespace-nowrap font-mono text-xs text-muted">{v}</span>
+        <div className="mb-6 font-mono text-xs font-bold tracking-[0.16em] text-muted">CNC & TURNING</div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {mainMachines.map((m) => (
+            <MachineCard key={m.name} {...m} />
+          ))}
+        </div>
+
+        <div className="mt-14 mb-6 font-mono text-xs font-bold tracking-[0.16em] text-muted">MILLING, GRINDING & FINISHING</div>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {smallerMachines.map((m) => (
+            <div key={m.name} className="overflow-hidden rounded-lg border border-line">
+              <div className="aspect-square overflow-hidden bg-panel">
+                <Image src={m.img} alt={m.name} width={240} height={240} className="h-full w-full object-cover" />
+              </div>
+              <div className="px-3 py-2.5 text-center text-sm font-medium text-ink">{m.name}</div>
             </div>
           ))}
         </div>
@@ -107,39 +167,27 @@ export default function CapabilitiesPage() {
       </section>
 
       <section className="border-y border-line bg-panel">
-        <div className="mx-auto grid max-w-6xl items-end gap-12 px-6 py-12 md:grid-cols-2">
-          <div className="md:order-2">
-            <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">INSPECTION</div>
-            <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
-              Every part measured before it ships.
-            </h2>
-            <p className="mb-6 max-w-[60ch] text-body">
-              A dedicated quality standard room backs every job, holding diameter accuracy within 2 microns and
-              surface finish below Ra 0.5.
-            </p>
-            <div className="mb-6 flex flex-wrap gap-3">
-              {featuredEquipment.map((eq) => (
-                <span key={eq} className="rounded-lg border border-accent/40 bg-accent-light px-3.5 py-2 text-sm font-semibold text-accent-hover">
-                  {eq}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {metrology.map((m) => <Tag key={m} label={m} />)}
-            </div>
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">INSPECTION</div>
+          <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
+            Every part measured before it ships.
+          </h2>
+          <p className="mb-10 max-w-[60ch] text-body">
+            A dedicated quality standard room backs every job, holding diameter accuracy within 2 microns and
+            surface finish below Ra 0.5.
+          </p>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {mainInspection.map((eq) => (
+              <MachineCard key={eq.name} {...eq} />
+            ))}
           </div>
-          <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line md:order-1">
-            <Image src="/images/capabilities/inspection.jpg" alt="Dial indicator measuring to 0.01mm" width={640} height={480} className="h-full w-full object-cover" />
+          <div className="mt-10 flex flex-wrap gap-2">
+            {metrology.map((m) => <Tag key={m} label={m} />)}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-12">
-        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">MATERIALS WE MACHINE</div>
-        <div className="flex flex-wrap gap-2">
-          {materials.map((m) => <Tag key={m} label={m} />)}
-        </div>
-      </section>
+      <MaterialsSection />
 
       <section className="border-t border-line bg-panel">
         <div className="mx-auto max-w-2xl px-6 py-16 text-center">
