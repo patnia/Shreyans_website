@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
 import { PageHeader } from "@/components/page-header";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { RfqForm } from "@/components/rfq-form";
 import { TurnedRing } from "@/components/ui/turned-ring";
-import { useMarket } from "@/components/market-provider";
 
 const sectors = ["Automotive", "Agriculture", "Construction", "Tools & Accessories", "Oil & Gas", "Telecom & Switchgear"];
 
@@ -18,13 +16,6 @@ const checklist = [
 ];
 
 export default function DomesticPage() {
-  const { setMarket } = useMarket();
-
-  useEffect(() => {
-    setMarket("international");
-    return () => setMarket("domestic");
-  }, [setMarket]);
-
   return (
     <>
       <PageHeader

@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useMarket } from "@/components/market-provider";
 
 export function Gateway() {
   const router = useRouter();
-  const { setMarket } = useMarket();
   const containerRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
 
@@ -48,7 +46,6 @@ export function Gateway() {
   const nameY = useTransform(scrollYProgress, [0.5, 0.62], [14, 0]);
 
   function goto(market: "domestic" | "international") {
-    setMarket(market);
     router.push("/home/");
   }
 
