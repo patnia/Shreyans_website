@@ -1,4 +1,4 @@
-type Material = { name: string; note: string; swatch: string };
+type Material = { name: string; swatch: string; note?: string; grades?: string[] };
 type Family = { name: string; materials: Material[] };
 
 // Each swatch is a sheen in the material's natural tone.
@@ -19,8 +19,8 @@ const families: Family[] = [
   {
     name: "Steels",
     materials: [
-      { name: "Stainless steel", note: "Including SS 303, 304, 316 and 430 (SUS430)", swatch: sheen("#555b62", "#9aa1a9", "#e3e7eb") },
-      { name: "Alloy steel", note: "Grades include 12L14, for high-volume turning", swatch: sheen("#33363a", "#6a6f75", "#b0b5ba") },
+      { name: "Stainless steel", grades: ["SS303", "SS304", "SS316", "SS430, SS430F"], swatch: sheen("#555b62", "#9aa1a9", "#e3e7eb") },
+      { name: "Alloy steel", grades: ["En1A, En1A (Leaded)", "En8, En8D", "S45C or C45", "42CrMo4", "En19", "20MnCr5", "12L14"], swatch: sheen("#33363a", "#6a6f75", "#b0b5ba") },
     ],
   },
   {
@@ -58,7 +58,7 @@ export function MaterialsSection() {
             <h3 className="font-heading text-xl font-bold text-ink">{family.name}</h3>
             <ul className="grid gap-3 sm:grid-cols-2">
               {family.materials.map((m) => (
-                <li key={m.name} className="flex items-center gap-4 rounded-xl border border-line bg-panel p-3">
+                <li key={m.name} className={`flex gap-4 rounded-xl border border-line bg-panel p-3 ${m.grades ? "items-start" : "items-center"}`}>
                   <span
                     className="h-14 w-14 flex-none rounded-full shadow-inner ring-1 ring-black/10"
                     style={{ background: m.swatch }}
@@ -66,7 +66,16 @@ export function MaterialsSection() {
                   />
                   <span className="min-w-0">
                     <span className="block font-semibold text-ink">{m.name}</span>
-                    <span className="block text-sm text-body">{m.note}</span>
+                    {m.note && <span className="block text-sm text-body">{m.note}</span>}
+                    {m.grades && (
+                      <span className="mt-2 flex flex-wrap gap-1.5" role="list" aria-label={`${m.name} grades`}>
+                        {m.grades.map((grade) => (
+                          <span key={grade} role="listitem" className="rounded-md border border-line px-2 py-1 font-mono text-xs text-body">
+                            {grade}
+                          </span>
+                        ))}
+                      </span>
+                    )}
                   </span>
                 </li>
               ))}
