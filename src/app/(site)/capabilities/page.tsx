@@ -20,16 +20,12 @@ const mainMachines = [
     img: "/images/capabilities/machines/vmc.jpg",
     desc: "BFW and Ace VMCs on a 700×550 mm table for milled and multi-axis work.",
   },
-  {
-    name: "Sliding-Head Automats",
-    img: "/images/capabilities/machines/sliding-head-automats.jpg",
-    desc: "Peterman, Bechler and Citizen F10 sliding-head machines, cam and CNC-driven, built for small, complex parts at volume.",
-  },
-  {
-    name: "Traubs",
-    img: "/images/capabilities/machines/traubs.jpg",
-    desc: "Chera Traub automats — 15 machines dedicated to high-volume bar turning.",
-  },
+];
+
+// Listed without photos so the photo cards stay in one even row.
+const otherTurning = [
+  "Sliding-head automats: Peterman, Bechler, Citizen F10",
+  "15 Chera Traub automats",
 ];
 
 const smallerMachines = [
@@ -106,6 +102,9 @@ export default function CapabilitiesPage() {
           {mainMachines.map((m) => (
             <MachineCard key={m.name} {...m} />
           ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {otherTurning.map((m) => <Tag key={m} label={m} />)}
         </div>
 
         <div className="mt-14 mb-6 font-mono text-xs font-bold tracking-[0.16em] text-muted">MILLING, GRINDING & FINISHING</div>
