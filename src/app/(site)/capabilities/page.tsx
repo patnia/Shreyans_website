@@ -2,7 +2,6 @@ import Image from "next/image";
 import { PageHeader } from "@/components/page-header";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { MovingBorderButton } from "@/components/ui/moving-border";
-import { MaterialsSection } from "@/components/materials-section";
 
 const mainMachines = [
   {
@@ -185,8 +184,6 @@ export default function CapabilitiesPage() {
           </div>
         </div>
       </section>
-
-      <MaterialsSection />
 
       <section className="border-t border-line bg-panel">
         <div className="mx-auto max-w-2xl px-6 py-16 text-center">

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { MarketText } from "@/components/market-text";
 import { SpecializationGrid } from "@/components/specialization-grid";
+import { MaterialsSection } from "@/components/materials-section";
 import { Car, HardHat, RadioTower, Tractor, Wrench } from "lucide-react";
 
 const sectors = [
@@ -61,15 +61,12 @@ export default function ProductsPage() {
               </article>
             ))}
           </div>
-          <div className="border-t border-line pt-8">
-            <Link href="/capabilities/#materials" className="text-sm font-bold text-accent hover:text-accent-hover">
-              See the materials we machine →
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <MaterialsSection />
+
+      <section className="mx-auto max-w-6xl border-t border-line px-6 py-16">
         <h2 className="font-heading mb-8 text-3xl font-bold text-ink">Sectors we serve</h2>
         <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 lg:grid-cols-5">
           {sectors.map(({ name, Icon }) => (
