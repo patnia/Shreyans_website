@@ -52,12 +52,42 @@ const mainInspection = [
   },
 ];
 
-const checklist = [
-  "Bar & chucked CNC turning to Ø200 mm",
-  "Sliding-head automats for small, complex parts",
-  "Milling, centreless & cylindrical grinding",
-  "Thread rolling, cutting and drilling",
-  "In-process and final inspection before dispatch",
+// Offered through the partner network, not in-house.
+const processes = [
+  {
+    name: "Forging",
+    img: "/images/capabilities/processes/forging.jpg",
+    items: ["Cold forging", "Ring rolling", "Hot forging", "Open-die forging"],
+  },
+  { name: "Casting", img: "/images/capabilities/processes/casting.jpg", items: ["Investment casting"] },
+  {
+    name: "Heat treatment",
+    img: "/images/capabilities/processes/heat-treatment.jpg",
+    items: [
+      "Hardening and tempering",
+      "Case hardening / carburising",
+      "Nitriding",
+      "Vacuum hardening",
+      "Annealing / normalising",
+    ],
+  },
+  {
+    name: "Surface treatment",
+    img: "/images/capabilities/processes/surface-treatment.jpg",
+    items: [
+      "Anodising",
+      "Alodising (chromate conversion coating)",
+      "Zinc trivalent (clear / yellow / black / green)",
+      "Zinc-nickel",
+      "Zinc flake",
+      "Nickel / nickel-chrome",
+      "Electroless nickel",
+      "Hard chrome",
+      "Powder coating",
+      "Painting",
+      "CED / e-coating",
+    ],
+  },
 ];
 
 const metrology = ["Air gauges", "Hardness tester", "Profile projector", "Digital micrometer / vernier", "Surface plate & height gauge"];
@@ -139,31 +169,6 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-end gap-12 px-6 py-12 md:grid-cols-2">
-        <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-line">
-          <Image src="/images/process.png" alt="Precision machined parts" width={640} height={480} className="h-full w-full object-cover" />
-        </div>
-        <div>
-          <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">PROCESS</div>
-          <h2 className="font-heading mb-4 max-w-[26ch] text-3xl font-bold text-ink">
-            Turning, grinding, forging, finishing, and full inspection.
-          </h2>
-          <p className="mb-6 max-w-[60ch] text-body">
-            We machine to print and procure forgings and castings from our partner network to machine in-house.
-            Finishing includes grinding, polishing, passivating, electroplating and super-finishing, followed by
-            documented inspection.
-          </p>
-          <ul>
-            {checklist.map((c) => (
-              <li key={c} className="flex items-center gap-3 border-b border-line py-3 text-[15px]">
-                <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent text-[10px] text-accent-ink">✓</span>
-                {c}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section className="border-y border-line bg-panel">
         <div className="mx-auto max-w-6xl px-6 py-12">
           <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">INSPECTION</div>
@@ -182,6 +187,29 @@ export default function CapabilitiesPage() {
           <div className="mt-10 flex flex-wrap gap-2">
             {metrology.map((m) => <Tag key={m} label={m} />)}
           </div>
+        </div>
+      </section>
+
+      <section id="processes" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-16">
+        <div className="mb-3 font-mono text-xs font-bold tracking-[0.16em] text-muted">PROCESSES</div>
+        <h2 className="font-heading mb-10 max-w-[44ch] text-3xl font-bold text-ink">
+          Through our trusted partner network, we can provide complete solutions for:
+        </h2>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {processes.map((group) => (
+            <div key={group.name} className="relative isolate overflow-hidden rounded-xl bg-dark">
+              <img src={group.img} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-b from-dark/75 via-dark/50 to-dark/50" aria-hidden="true" />
+              <div className="p-5 [text-shadow:0_1px_3px_rgb(0_0_0/0.8)]">
+                <h3 className="font-heading mb-3 text-lg font-bold text-white">{group.name}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item} className="border-t border-white/25 py-2.5 text-sm font-medium text-white">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
